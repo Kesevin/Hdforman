@@ -1,0 +1,422 @@
+package com.dgg.hdforeman.mvp.ui.project.activity;
+
+import android.Manifest;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.widget.NestedScrollView;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.dgg.hdforeman.R;
+import com.dgg.hdforeman.app.utils.CommonUtil;
+import com.dgg.hdforeman.app.utils.DensityUtil;
+import com.dgg.hdforeman.app.utils.TimeUtil;
+import com.dgg.hdforeman.app.view.StarBar;
+import com.dgg.hdforeman.di.commponent.AppComponent;
+import com.dgg.hdforeman.di.commponent.DaggerIntermediateAcceptComponent;
+import com.dgg.hdforeman.di.module.IntermediateAcceptModule;
+import com.dgg.hdforeman.mvp.contract.project.IntermediateAcceptContract;
+import com.dgg.hdforeman.mvp.model.been.IntermediateAcceptResponse;
+import com.dgg.hdforeman.mvp.model.been.InviteRequest;
+import com.dgg.hdforeman.mvp.model.been.ProjectAcceptResponse;
+import com.dgg.hdforeman.mvp.model.been.ProjectInfoResponse;
+import com.dgg.hdforeman.mvp.presenter.project.IntermediateAcceptPresenter;
+import com.dgg.hdforeman.mvp.ui.project.adapter.BaseAdapter;
+import com.dgg.hdforeman.mvp.ui.widget.BaseItemDecoration;
+import com.dgg.hdforeman.mvp.ui.widget.PromptDialog;
+import com.jess.arms.utils.PermissionUtil;
+import com.jess.arms.utils.UiUtils;
+import com.tbruyelle.rxpermissions.RxPermissions;
+import com.zhy.autolayout.AutoLinearLayout;
+import com.zhy.autolayout.AutoRelativeLayout;
+import com.zhy.autolayout.utils.AutoUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+import cn.bingoogolapple.photopicker.activity.PhotoPreviewActivity;
+
+import static com.dgg.hdforeman.mvp.ui.project.activity.FieldLiveActivity.REQUEST_CODE_CHOOSE_PHOTO;
+import static com.jess.arms.utils.Preconditions.checkNotNull;
+
+//import static com.dgg.hdforeman.mvp.ui.project.activity.FieldLiveActivity.REQUEST_CODE_PHOTO_PREVIEW;
+
+
+/**
+ * Created by kelvin on 2016/11/8.
+ */
+
+public class IntermediateAcceptActivity extends BacksActivity<IntermediateAcceptPresenter> implements IntermediateAcceptContract.View,SwipeRefreshLayout.OnRefreshListener {
+
+    @BindView(R.id.scrollView)
+    NestedScrollView mScrollView;
+    @BindView(R.id.recyclerView)
+    RecyclerView mRecyclerView;
+    @BindView(R.id.HydropowerProtectionLayout)
+    AutoLinearLayout mAutoLinearLayout;
+    @BindView(R.id.IntermediateName)
+    TextView mIntermediateName;
+    @BindView(R.id.pm_xtnl)
+    StarBar mXtnl;//协调能力
+    @BindView(R.id.pm_fwtd)
+    StarBar mFwtd;//服务态度
+    @BindView(R.id.pm_gqgk)
+    StarBar mGqgk;//工期管控
+    @BindView(R.id.pm_ztjn)
+    StarBar mZtjn;//专业技能
+    @BindView(R.id.upLoadImgBtn)
+    Button mUpLoadImgBtn;
+//    @BindView(R.id.QuantitiesEditText)
+//    EditText mQuantitiesEditText;
+    @BindView(R.id.tv_state_end_time)
+    TextView tvStateEndTime;
+    @BindView(R.id.tv_accept_date)
+    TextView tvAcceptDate;//验收日期
+    @BindView(R.id.tv_stage_name)
+    TextView tvStageName;
+    @BindView(R.id.InviteBtn)
+    Button inviteBtn;
+    @BindView(R.id.ll_priceItem)
+    AutoLinearLayout llPriceItem;
+    @BindView(R.id.accept_item_score)
+    TextView acceptItemScore;
+    @BindView(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout mSwipeRefreshLayout;
+
+    public static final String INTERMEDIATE_ACCEPT_DATA = "intermediate_accept_data";
+    public static final String PROJECT_ACCEPT_RESPONSE_DATA = "project_accept_response_data";
+
+    public static final int RECYCLER_SPAN_COUNT = 4;
+
+    private ProjectAcceptResponse mProjectAcceptData;//验收数据data
+    private ProjectInfoResponse mData;//项目数据data
+    private IntermediateAcceptResponse mIntermediateAcceptResponse;
+    private int state;
+    private boolean workIsEmpty=true;
+    private boolean isCanInvite;
+
+    @Override
+    protected void setupActivityComponent(AppComponent appComponent) {
+        DaggerIntermediateAcceptComponent
+                .builder()
+                .appComponent(appComponent)
+                .intermediateAcceptModule(new IntermediateAcceptModule(this))
+                .build()
+                .inject(this);
+    }
+
+    @Override
+    protected View initView() {
+        return LayoutInflater.from(this).inflate(R.layout.intermediate_accept_acivity, null, false);
+    }
+
+    @Override
+    protected void initData() {
+        mData = (ProjectInfoResponse) getIntent().getSerializableExtra(INTERMEDIATE_ACCEPT_DATA);
+        mProjectAcceptData = (ProjectAcceptResponse) getIntent().getExtras().getSerializable(PROJECT_ACCEPT_RESPONSE_DATA);
+//        initLayout();
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorOrange, R.color.bgGreyColor, R.color.colorLightRed, R.color.colorPrimaryDark);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        initRecyclerView();
+        mPresenter.initAdapter();
+        qryData();
+    }
+
+    /**
+     * 初始化RecyclerView
+     */
+    private void initRecyclerView(){
+        GridLayoutManager layoutManager = new GridLayoutManager(this, RECYCLER_SPAN_COUNT, LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.addItemDecoration(new BaseItemDecoration(0,0, AutoUtils.getPercentWidthSize(10),AutoUtils.getPercentWidthSize(10)));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+    }
+
+
+    /**
+     * 初始化布局
+     */
+    private void initLayout(){
+        int state = mProjectAcceptData.getPs_state();
+        if (state >= 5) {//已验收
+            mAutoLinearLayout.setVisibility(View.VISIBLE);
+            mUpLoadImgBtn.setVisibility(View.GONE);
+        } else if (state == 4) {//验收中
+            mAutoLinearLayout.setVisibility(View.GONE);
+            mUpLoadImgBtn.setVisibility(View.GONE);
+        }else{//待验收
+            mAutoLinearLayout.setVisibility(View.GONE);
+            mUpLoadImgBtn.setVisibility(View.VISIBLE);
+        }
+
+    }
+       @Override
+    public void jumpToPhotoPreview(ArrayList<String> url,int position){
+            startActivity(PhotoPreviewActivity.newIntent(this, null, url, position));
+    }
+
+    /**
+     * 获取阶段验收数据信息
+     */
+    private void qryData() {
+        mPresenter.requestList(mData, mProjectAcceptData);
+    }
+
+    /**
+     * 更新UI
+     *
+     * @param data
+     */
+    @Override
+    public void updateLayout(IntermediateAcceptResponse data) {
+        this.mIntermediateAcceptResponse=data;
+      state = data.getPs_state();
+        mIntermediateName.setText(data.getPs_stname());
+        tvStageName.setText(data.getPs_stname());
+
+        if (state >= 5) {//已验收
+            tvStateEndTime.setText("完工日期："+ TimeUtil.keepTimeYMD(data.getPs_enddate(),TimeUtil.YEAR_MONTH_DAY));
+            mAutoLinearLayout.setVisibility(View.VISIBLE);
+            mUpLoadImgBtn.setVisibility(View.GONE);
+            inviteBtn.setVisibility(View.GONE);
+            mXtnl.setStarMark(data.getPs_wmxtnl());
+            mFwtd.setStarMark(data.getPs_wmfwtd());
+            mGqgk.setStarMark(data.getPs_wmgqgk());
+            mZtjn.setStarMark(data.getPs_wmztjn());
+            tvAcceptDate.setText("验收日期："+data.getPs_passtime());
+            if(data.getAverage()==0){
+                acceptItemScore.setText("暂无\n评分");
+                acceptItemScore.setTextSize(CommonUtil.dip2px(this,18));
+            }else{
+                acceptItemScore.setText(data.getAverage()+"");
+            }
+
+            setPriceList(data,false);
+        } else if (state == 4) {//验收中
+            tvStateEndTime.setText("完工日期："+ TimeUtil.keepTimeYMD(data.getPs_enddate(),TimeUtil.YEAR_MONTH_DAY));
+            mAutoLinearLayout.setVisibility(View.GONE);
+            mUpLoadImgBtn.setVisibility(View.GONE);
+            inviteBtn.setVisibility(View.GONE);
+            setPriceList(data,false);
+        }else{//待验收
+            tvStateEndTime.setText("预计完工日期："+ TimeUtil.keepTimeYMD(data.getPs_enddate(),TimeUtil.YEAR_MONTH_DAY));
+            mAutoLinearLayout.setVisibility(View.GONE);
+            mUpLoadImgBtn.setVisibility(View.VISIBLE);
+            inviteBtn.setVisibility(View.VISIBLE);
+            setPriceList(data,true);
+        }
+
+    }
+
+    private void setPriceList(IntermediateAcceptResponse data, boolean isEdit){
+        llPriceItem.removeAllViews();
+        for (IntermediateAcceptResponse.priceListBean priceItem:
+                data.getPriceList()) {
+            View view=LayoutInflater.from(this).inflate(R.layout.item_intermediate,null);
+            TextView tv= (TextView) view.findViewById(R.id.QuantitiesEditTextName);
+            final EditText editText= (EditText) view.findViewById(R.id.QuantitiesEditText);
+            editText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    String tmp=s.toString().trim();
+                    if(tmp.length()!=0){
+                        if(tmp.contains(".")){
+                            if(tmp.length()-tmp.indexOf(".")>3){
+                                tmp = tmp.substring(0, tmp.length()-1);
+                                editText.setText(tmp);
+                                editText.setSelection(tmp.length());
+                            }
+                        }
+                    }
+                }
+            });
+            tv.setText(priceItem.getPs_spname()+":");
+            if(!isEdit){
+                editText.setHint("");
+            editText.setText((priceItem.getPs_worknumber().equals("0.0") || TextUtils.isEmpty(priceItem.getPs_worknumber()))? "0" : priceItem.getPs_worknumber());
+            editText.setEnabled(isEdit);}
+            AutoLinearLayout.LayoutParams params = new AutoLinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            params.topMargin = DensityUtil.getPercentWidthSize(30);
+            llPriceItem.addView(view,params);
+        }
+    }
+
+    @OnClick({R.id.upLoadImgBtn,R.id.toolbar_right,R.id.InviteBtn})
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.upLoadImgBtn://上传图片
+                if(state==0){
+                    showMessage("该阶段未完工，无法上传图片");
+                    return;
+                }
+                mPresenter.choosePic();
+                break;
+            case R.id.toolbar_right://联系业主
+                callPhone();
+                break;
+            case R.id.InviteBtn://邀请业主验收
+                invite();
+                break;
+        }
+    }
+
+    /**
+     * 邀请业主验收
+     */
+    private void invite(){
+        List<InviteRequest.WorkBean> work=new ArrayList<>();
+        for (int i = 0; i < mIntermediateAcceptResponse.getPriceList().size(); i++) {
+            View viewLayout=llPriceItem.getChildAt(i);
+            EditText et= (EditText) viewLayout.findViewById(R.id.QuantitiesEditText);
+            String workNum=et.getText().toString().trim();
+            if(workNum.startsWith(".")){
+                Toast.makeText(this,"请输入正确的工程量",Toast.LENGTH_SHORT).show();
+                return;
+            }
+            InviteRequest.WorkBean workBean=new InviteRequest().new WorkBean();
+            workBean.setPriceid(mIntermediateAcceptResponse.getPriceList().get(i).getPriceid());
+            workBean.setWorknum(workNum);
+            work.add(workBean);
+            if((TextUtils.isEmpty(workNum) || workNum.equals("0")) && workIsEmpty){
+                workIsEmpty=false;
+                isCanInvite=false;
+                showDialog();
+                work.clear();
+                break;
+            }else{
+                isCanInvite=true;
+            }
+        }
+        if(isCanInvite){
+            mPresenter.invite(work, mProjectAcceptData);
+        }
+    }
+
+    /**
+     * 工程量输入不全时友好提示
+     */
+    private void showDialog(){
+        PromptDialog.Builder builder=new PromptDialog.Builder(IntermediateAcceptActivity.this);
+        builder.setMessage("您还有工程量未输入，确定邀请业主验收吗？")
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        invite();
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).create().show();
+    }
+
+    /**
+     * 给业主打电话
+     */
+    public void callPhone() {
+        PermissionUtil.callPhone(new PermissionUtil.RequestPermission() {
+            @Override
+            public void onRequestPermissionSuccess() {
+                if (ActivityCompat.checkSelfPermission(IntermediateAcceptActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
+
+                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"
+                        + mData.getPm_cuscontactno())));
+            }
+        }, RxPermissions.getInstance(this), this, mHDApplication.getAppComponent().rxErrorHandler());
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case REQUEST_CODE_CHOOSE_PHOTO:
+                   mPresenter.previewPic(data,mData,mProjectAcceptData);
+                    break;
+
+//                case REQUEST_CODE_PHOTO_PREVIEW:
+//                    mPresenter.upLoadPicture(data);
+//                    break;
+                case 3:
+//                    qryData();
+                    mPresenter.updataImg( data.getStringExtra("ids"));
+                    break;
+            }
+
+        }
+    }
+
+    @Override
+    public void setAdapter(BaseAdapter adapter) {
+        mRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void launchActivityForResult(Intent intent, int request) {
+        startActivityForResult(intent,request);
+    }
+
+    @Override
+    public void launchActivity(Intent intent) {
+
+    }
+
+    @Override
+    public void killMyself() {
+        super.onBackPressed();
+    }
+
+    @Override
+    public void showLoading() {
+        mSwipeRefreshLayout.setRefreshing(true);
+    }
+
+    @Override
+    public void hideLoading() {
+        mSwipeRefreshLayout.setRefreshing(false);
+    }
+    @Override
+    public void showMessage(@NonNull String message) {
+        checkNotNull(message);
+        UiUtils.makeText(message);
+    }
+
+    @Override
+    public void onRefresh() {
+        qryData();
+    }
+}

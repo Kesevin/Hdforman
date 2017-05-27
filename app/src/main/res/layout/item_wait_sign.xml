@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll_accept"
+    android:background="@color/colorDivide"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/rl_floor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/left_right_spacing"
+        android:background="@color/textWhiteColor"
+        android:paddingBottom="36px"
+        android:paddingLeft="@dimen/margin_left_right_common"
+        android:paddingRight="@dimen/margin_left_right_common"
+        android:paddingTop="36px">
+
+        <TextView
+            android:id="@+id/tv_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中德英伦联邦"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/text_size_17" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_area"
+            android:layout_marginLeft="@dimen/left_right_spacing"
+            android:layout_toRightOf="@id/tv_area"
+            android:text="12栋1单元1004号"
+            android:textColor="@color/textLightDarkColor" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_below="@+id/rl_floor"
+        android:background="@color/colorDivide" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/textWhiteColor"
+        android:paddingBottom="40px">
+
+        <TextView
+            android:id="@+id/tv_sign_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/margin_left_right_common"
+            android:paddingTop="28px"
+            android:text="工程完成待验收"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/def_text_size_sp" />
+
+
+
+        <TextView
+            android:id="@+id/tv_owner_accept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_sign_state"
+            android:paddingLeft="@dimen/margin_left_right_common"
+            android:paddingTop="28px"
+            android:text="业主:刘桑娥"
+            android:textColor="@color/textDarkColor" />
+
+        <ImageButton
+            android:id="@+id/ib_call_accept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="26px"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/call_phone" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoLinearLayout>

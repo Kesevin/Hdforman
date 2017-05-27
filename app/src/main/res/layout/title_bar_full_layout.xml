@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title_lay"
+    android:layout_width="match_parent"
+    android:layout_height="150px"
+    android:background="@color/colorOrange"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="50px"
+
+   >
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="@dimen/title_btn_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|center_vertical"
+        android:background="@null"
+        android:gravity="center"
+        android:src="@drawable/back_btn_selector"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lines="1"
+        android:text="家装"
+        android:textColor="#ffffff"
+        android:textSize="36px" />
+
+    <ImageButton
+        android:id="@+id/more_btn"
+        android:layout_width="@dimen/title_btn_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center_vertical"
+        android:background="@null"
+        android:gravity="center"
+        android:src="@drawable/more_btn_selector"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/right_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center_vertical"
+        android:paddingRight="24px"
+        android:paddingLeft="20px"
+        android:background="@null"
+        android:gravity="center"
+        android:text="完成"
+        android:textColor="@drawable/btn_text_selector"
+        android:textSize="36px"
+        android:visibility="gone" />
+
+</com.zhy.autolayout.AutoFrameLayout>

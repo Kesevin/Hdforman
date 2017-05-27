@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       android:background="@color/white"
+                                       android:paddingTop="44px">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_pname"
+        android:layout_marginLeft="@dimen/px_24"
+        android:text="工地名称"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_pname"
+        android:layout_marginTop="36px"
+        android:layout_marginLeft="@dimen/px_24"
+        android:text="套内面积"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_pname"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="36px"
+        android:layout_marginRight="@dimen/px_24"
+        android:text="20m²"
+        android:id="@+id/tv_metre"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:layout_below="@id/tv_metre"
+        android:id="@+id/divider_grey"
+        android:layout_marginTop="@dimen/px_40"
+        android:background="@color/backgroundGray"></View>
+</com.zhy.autolayout.AutoRelativeLayout>

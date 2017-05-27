@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\btn_normal.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xxhdpi\\btn_normal.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\bga_pp_ic_download.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xxhdpi\\bga_pp_ic_download.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\bga_pp_ic_delete.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xxhdpi\\bga_pp_ic_delete.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\btn_selected.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xxhdpi\\btn_selected.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\bga_pp_ic_plus.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xxhdpi\\bga_pp_ic_plus.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\bga_pp_ic_gallery_camera.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xxhdpi\\bga_pp_ic_gallery_camera.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\bga_pp_ic_holder_light.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xxhdpi\\bga_pp_ic_holder_light.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\bga_pp_ic_holder_dark.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xxhdpi\\bga_pp_ic_holder_dark.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\nav_return.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xxhdpi\\nav_return.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi-v4\\bga_pp_ic_arrow_down.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xxhdpi\\bga_pp_ic_arrow_down.png"
+    }
+]

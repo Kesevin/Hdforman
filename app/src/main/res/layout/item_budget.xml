@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30px">
+        <TextView
+            android:id="@+id/basic_package_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="套餐价："/>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true">
+            <TextView
+                android:id="@+id/basic_package_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="96.65㎡ x ￥399/㎡="/>
+            <TextView
+                android:id="@+id/basic_package_allMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥25,471.20"
+                android:textColor="@color/colorLightRed"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

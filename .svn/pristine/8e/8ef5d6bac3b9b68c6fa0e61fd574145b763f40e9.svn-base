@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorOrange">#f4723e</color>
+    <color name="colorBlue">#3FBFF0</color>
+    <color name="colorLightRed">#fa4f4f</color>
+    <color name="colorLightOrange">#f8874e</color>
+    <color name="colorDivide">#e5e5e5</color>
+    <color name="colorBackground">#f4f4f4</color>
+    <color name="itemClickColor">#F0F0F0</color>
+
+
+    <color name="textPressedColor">#22000000</color>
+    <color name="textGreyColor">#999999</color>
+    <color name="textLightDarkColor">#666666</color>
+    <color name="textGray">#a9a9a9</color>
+    <color name="textDarkColor">#333333</color>
+    <color name="textBlackColor">#000000</color>
+    <color name="textBlackgray">#424242</color>
+    <color name="color_gray">#EBEBEB</color>
+    <color name="color_divider">#DDDDDD</color>
+
+    <color name="backgroundGray">#F4F4F4</color>
+    <color name="textWhiteColor">#FFFFFF</color>
+    <color name="textLightBlackColor">#323232</color>
+    <color name="textLightGreyColor">#D6D6D6</color>
+    <color name="textRedColor">#ff2d2d</color>#
+    <color name="bgGreyColor">#F6F6F6</color>
+    <color name="textGreenColor">#72BB38</color>
+    <color name="bgBlackColor">#393A3F</color>
+    <color name="transparentBackground">#00000000</color>
+    <color name="button_orange">#F4733C</color>
+
+    <color name="translate_60">#99000000</color>
+    <color name="layoutPressed">#F9F9F9</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="gray_BABABA">#BABABA</color>
+
+    <!--hintcolor-->
+    <color name="hintcolor">#999999</color>
+
+    <color name="gray_BFBFBF">#BFBFBF</color>
+</resources>

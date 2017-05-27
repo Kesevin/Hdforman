@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="168px"
+        android:layout_marginTop="20px"
+        android:background="@color/textWhiteColor">
+
+        <TextView
+            android:id="@+id/area_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="40px"
+            android:text="总计套内面积"
+            android:textColor="@color/textDarkColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/area_count"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="32px"
+            android:text="总计周长"
+            android:textColor="@color/textDarkColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/area_count_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="26px"
+            android:layout_marginTop="40px"
+            android:text="89.88㎡"
+            android:textColor="@color/textDarkColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/perimeter_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/area_count_val"
+            android:layout_marginRight="26px"
+            android:layout_marginTop="32px"
+            android:text="89.88m"
+            android:textColor="@color/textDarkColor"
+            android:textSize="16sp" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <TextView
+        android:background="@color/textWhiteColor"
+        android:id="@+id/calculate_rule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:padding="10dp"
+        android:text="我是计算规则我是计算规则我是计算规则我是计算规则我是 计算规则我是计算规则我是计算规则我是计算规则我是计算 规则我是计算规则我是计算规则我是计算规则我是计算规则 我是计算规则我是计算规则。" />
+
+    <Button
+        android:id="@+id/calculate_area"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_marginTop="76px"
+        android:background="@color/colorOrange"
+        android:text="计算套内建筑面积"
+        android:textColor="@color/textWhiteColor"
+        android:textSize="16sp" />
+</com.zhy.autolayout.AutoLinearLayout>

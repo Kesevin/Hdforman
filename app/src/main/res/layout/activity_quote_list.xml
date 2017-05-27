@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/layout_tool_bar"/>
+
+    <android.support.v4.widget.NestedScrollView
+
+        android:id="@+id/sv_project_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_quote_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/Spacing_5"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingRight="@dimen/Spacing_3"
+                android:paddingTop="@dimen/Spacing_4">
+
+
+                <TextView
+                    android:id="@+id/tv_quote_list_base"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingBottom="@dimen/Spacing_4"
+                    android:text="基础包"
+                    android:textColor="@color/textLightDarkColor"
+                    android:textSize="@dimen/font_3"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_quote_list_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textDarkColor"
+                        android:textSize="@dimen/font_3"
+                        android:text="@string/str_total"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_quote_list_total_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/Spacing_1"
+                        android:layout_toRightOf="@id/tv_quote_list_total"
+                        android:textColor="@color/textRedColor"
+                        android:textSize="@dimen/font_2"
+                        tools:text="¥25,471.00"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_quote_list_expression"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_quote_list_base"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/font_2"
+                    tools:text="96.65㎡ x 399元/㎡=￥25471.00"
+                    />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/Spacing_4"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingTop="@dimen/Spacing_4"
+                android:text="升级包"
+                android:textSize="@dimen/font_3"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingBottom="40px"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingRight="@dimen/Spacing_3"
+                >
+
+                <com.dgg.hdforeman.mvp.ui.widget.NoTouchRecycleView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    ></com.dgg.hdforeman.mvp.ui.widget.NoTouchRecycleView>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+
+
+
+                    <TextView
+                        android:id="@+id/tv_quote_list_upgrade_total_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/Spacing_1"
+                        android:textColor="@color/textRedColor"
+                        android:layout_alignParentRight="true"
+                        android:textSize="@dimen/font_2"
+                        tools:text="¥200"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_quote_list_upgrade_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textDarkColor"
+                        android:layout_toLeftOf="@id/tv_quote_list_upgrade_total_num"
+                        android:textSize="@dimen/font_3"
+                        android:text="@string/str_total"
+                        />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:id="@+id/rl_time_picker"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingRight="@dimen/Spacing_3">
+
+                <TextView
+                    android:id="@+id/tv_quote_list_work_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/Spacing_4"
+                    android:layout_marginTop="@dimen/Spacing_4"
+                    android:text="预计开工时间："
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="14sp"
+                    />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/list_jump"/>
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/rl_quote_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/Spacing_6"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingRight="@dimen/Spacing_3"
+                android:paddingTop="44px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="小区周末能否施工（单选）"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/font_3"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/Spacing_6">
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/rg_canornot"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:text="不能"
+                            android:id="@+id/rb_nocan"
+                            android:gravity="center"
+                            android:checked="true"
+                            android:textColor="@drawable/tag_text_selector"
+                            android:layout_weight="1"
+                            android:button="@null"
+                            android:background="@drawable/tag_fllow_selector"/>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:width="0dp"
+                            android:id="@+id/rb_can"
+                            android:text="能"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:layout_marginLeft="15dp"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:textColor="@drawable/tag_text_selector"
+                            android:button="@null"
+                            android:background="@drawable/tag_fllow_selector"/>
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <com.dgg.hdforeman.mvp.ui.widget.NoTouchRecycleView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:id="@+id/rv_choice">
+            </com.dgg.hdforeman.mvp.ui.widget.NoTouchRecycleView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="@dimen/px_40"
+                android:paddingBottom="@dimen/px_40"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px_40"
+                    android:layout_marginBottom="@dimen/px_20"
+                    android:text="备注"/>
+                <EditText
+                    android:id="@+id/et_quote_list_remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/Spacing_2"
+                    android:layout_marginLeft="@dimen/px_20"
+                    android:layout_marginRight="@dimen/px_20"
+                    android:layout_marginTop="@dimen/px_20"
+                    android:gravity="start"
+                    android:background="@drawable/check_stroke_gray_shape"
+                    android:minLines="4"/>
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_quote_list_action"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_marginTop="50px"
+                android:background="@color/colorOrange"
+                android:text="生成预算单"
+                android:textColor="@color/white"
+                />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

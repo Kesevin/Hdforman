@@ -1,0 +1,322 @@
+package com.dgg.hdforeman.mvp.model.api.service;
+
+import com.dgg.hdforeman.mvp.model.api.Api;
+import com.dgg.hdforeman.mvp.model.been.AddFreeTermBean;
+import com.dgg.hdforeman.mvp.model.been.AnnouncementBean;
+import com.dgg.hdforeman.mvp.model.been.BaseData;
+import com.dgg.hdforeman.mvp.model.been.BaseData2;
+import com.dgg.hdforeman.mvp.model.been.BaseJson;
+import com.dgg.hdforeman.mvp.model.been.ConstructProgress;
+import com.dgg.hdforeman.mvp.model.been.ConstructTeam;
+import com.dgg.hdforeman.mvp.model.been.FitmentPicture;
+import com.dgg.hdforeman.mvp.model.been.FreeTermlistBean;
+import com.dgg.hdforeman.mvp.model.been.IntermediateAcceptResponse;
+import com.dgg.hdforeman.mvp.model.been.LiveBean;
+import com.dgg.hdforeman.mvp.model.been.LoginData;
+import com.dgg.hdforeman.mvp.model.been.MaterialBean;
+import com.dgg.hdforeman.mvp.model.been.MessageBean;
+import com.dgg.hdforeman.mvp.model.been.MineBean;
+import com.dgg.hdforeman.mvp.model.been.MineData;
+import com.dgg.hdforeman.mvp.model.been.ModifyPassWord;
+import com.dgg.hdforeman.mvp.model.been.ProjectAcceptResponse;
+import com.dgg.hdforeman.mvp.model.been.ProjectInfoResponse;
+import com.dgg.hdforeman.mvp.model.been.ProjectListResponse;
+import com.dgg.hdforeman.mvp.model.been.ProjectListResponseNew;
+import com.dgg.hdforeman.mvp.model.been.ProjectResponse;
+import com.dgg.hdforeman.mvp.model.been.ProjectShutResponse;
+import com.dgg.hdforeman.mvp.model.been.ScoreBean;
+import com.dgg.hdforeman.mvp.model.been.SpaceBean;
+import com.dgg.hdforeman.mvp.model.been.Team;
+import com.dgg.hdforeman.mvp.model.been.TeamAdd;
+import com.dgg.hdforeman.mvp.model.been.TeamSearchResult;
+import com.dgg.hdforeman.mvp.model.been.UpLoadResponse;
+import com.dgg.hdforeman.mvp.model.been.VersionInfo;
+
+import java.util.List;
+
+import okhttp3.MultipartBody;
+import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
+import rx.Observable;
+
+;
+
+/**
+ * 接口
+ */
+public interface CommonService {
+
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<LoginData>> login(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<MineData>> mineData(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<List<Team>>> teamAll(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<List<TeamSearchResult>>> teamSearch(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<TeamAdd> teamAdd(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<ModifyPassWord> modifyPassWord(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<List<TeamSearchResult>>> teamNoForeman(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<List<AnnouncementBean>>> Announcement(@Field("p") String params);
+
+    /**
+     * 项目模块数据
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson<List<ProjectResponse>>> getList(@Field("p") String params);
+
+    /**
+     * 项目详情
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson<ProjectInfoResponse>> getProjectInfo(@Field("p") String params);
+
+    /**
+     * 项目进度
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson<ConstructProgress.PDBean>> getConstructProgressInfo(@Field("p") String params);
+
+
+    /**
+     * 项目开工
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson<ProjectShutResponse>> StartWork(@Field("p") String params);
+
+    /**
+     * 根据子节点ID修改其状态
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson> updateStageNode(@Field("p") String params);
+
+    /**
+     * 申请停工
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson> projectShut(@Field("p") String params);
+
+    /**
+     * 获取工程验收列表
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson<List<ProjectAcceptResponse>>> getProjectAcceptList(@Field("p") String params);
+
+    /**
+     * 获取阶段验收信息
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson<IntermediateAcceptResponse>> getIntermediateAcceptList(@Field("p") String params);
+
+    /**
+     * 获取项目清单信息
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<ProjectListResponse> getProjectList(@Field("p") String params);
+
+    /**
+     * 获取项目清单信息
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<ProjectListResponseNew> getProjectListNew(@Field("p") String params);
+
+    /**
+     * 邀请业主验收
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson> ownerAcceptance(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<List<ScoreBean>>> MineScoreList(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<List<ConstructTeam>>> getConstructTeamListData(@Field("p") String params);
+ /**
+     * 获取测量空间
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson<SpaceBean>> getMessurelist(@Field("p") String params);
+    /*增加空间*/
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson<String>> addSpace(@Field("p") String params);
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData> addTeamMember(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData> deleteTeamMember(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<MaterialBean>> getMaterials(@Field("p") String params);
+
+    /**
+     * 装修示意图
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<FitmentPicture>> getFitmentPictureData(@Field("p") String params);
+
+    /**
+     * 确认项目新增自由项
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData> doFreeitems(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<List<LiveBean>>> getSiteLive(@Field("p") String params);
+
+    /**
+     * 上传文件
+     *
+     * @param fln
+     * @param file
+     * @return
+     */
+    @POST(Api.URL_UPLOAD_IMG)
+    Observable<BaseData2<UpLoadResponse>> upLoadImg(@Query("fln") String fln, @Body MultipartBody file);
+
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<String>> confirmUpLoad(@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<String>> confirmAcceptance (@Field("p") String params);
+
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<String>> upLoadDecorationPermit (@Field("p") String params);
+
+    /**
+     * 申请复工
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData> applyStartWork(@Field("p") String params);
+
+    /**
+     * 获取项目自由项
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson<List<FreeTermlistBean>>> getFreeTermsData(@Field("p") String params);
+    /**
+     * 添加项目自由项
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson> addFreeTerm(@Field("p") String params); /**
+     * 配置选项包
+     * @param params
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseJson<List<AddFreeTermBean>>> loaddepolyFreeTerm(@Field("p") String params);
+
+
+    /**
+     * 发送业主
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<String>> sendCustomer(@Field("p") String params);
+
+    /**
+     * 我的_消息中心
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<List<MessageBean>>> getMineMessage(@Field("p") String params);
+
+    /**
+     * 版本检测
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<VersionInfo>> getVersion(@Field("p") String params);
+
+    /**
+     * 获取个人中心我的评分
+     */
+    @FormUrlEncoded
+    @POST(Api.URL)
+    Observable<BaseData<MineBean>> getMyScore(@Field("p") String params);
+}

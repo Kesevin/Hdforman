@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:id="@+id/rl_stage_item"
+    android:background="@color/textWhiteColor">
+
+    <TextView
+        android:id="@+id/tv_stage_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26px"
+        android:layout_marginTop="40px"
+        android:text="木工及其他隐蔽阶段"
+        android:textColor="@color/textDarkColor"
+        android:textSize="@dimen/def_text_size_sp" />
+
+    <TextView
+        android:id="@+id/tv_state_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_stage_name"
+        android:layout_marginLeft="26px"
+        android:layout_marginTop="30px"
+        android:text="完工日期: 2016-08-05"
+        android:textColor="@color/textLightDarkColor" />
+
+    <Button
+        android:layout_width="238px"
+        android:layout_height="78px"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="26px"
+        android:layout_marginTop="40px"
+        android:background="@color/colorOrange"
+        android:text="上传图片"
+        android:textColor="@color/textWhiteColor" />
+
+    <GridView
+        android:id="@+id/gv_stage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_state_end_time"
+        android:layout_marginLeft="26px"
+        android:layout_marginRight="26px"
+        android:horizontalSpacing="10px"
+        android:numColumns="4"
+        android:verticalSpacing="10px"
+        android:layout_marginBottom="40px"
+        tools:listitem="@layout/item_stage_image"></GridView>
+</com.zhy.autolayout.AutoRelativeLayout>

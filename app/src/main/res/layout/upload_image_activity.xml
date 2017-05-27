@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDivide"
+    android:orientation="vertical">
+
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:background="@color/bgBlackColor"
+        app:contentInsetStart="0dp">
+
+        <ImageView
+            android:id="@+id/toolbar_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/nav_return" />
+
+        <Button
+            android:id="@+id/toolbar_right_btn"
+            android:layout_width="186px"
+            android:layout_height="68px"
+            android:layout_gravity="right"
+            android:layout_marginRight="26px"
+            android:layout_marginTop="12px"
+            android:background="@drawable/btn_orange_shape"
+            android:text="上传(1/9)"
+            android:textColor="@color/textWhiteColor"
+            android:textSize="@dimen/def_text_size_sp" />
+
+
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar>
+
+    <GridView
+        android:id="@+id/gv_choose"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_marginLeft="26px"
+        android:layout_marginRight="26px"
+        android:layout_marginTop="30px"
+        android:horizontalSpacing="10px"
+        android:scrollbars="none"
+        android:verticalSpacing="10px"></GridView>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="98px"
+        android:layout_alignParentBottom="true"
+        android:background="#99000000"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图片"
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

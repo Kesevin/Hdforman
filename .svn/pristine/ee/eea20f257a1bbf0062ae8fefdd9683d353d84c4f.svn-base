@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2px"
+    android:orientation="horizontal"
+    android:background="@android:color/white">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorDivide"/>
+
+    <com.dgg.hdforeman.mvp.ui.widget.CircleImageView
+        android:id="@+id/iv_mine"
+        android:layout_width="102px"
+        android:layout_height="102px"
+        android:layout_marginBottom="30px"
+        android:layout_marginLeft="26px"
+        android:layout_marginTop="30px"
+        android:src="@mipmap/mine_image" />
+
+    <TextView
+        android:id="@+id/tv_mine_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="42px"
+        android:layout_toRightOf="@+id/iv_mine"
+        android:text="田富贵"
+        android:textColor="@color/textDarkColor"
+        android:textSize="@dimen/def_text_size_sp" />
+
+    <ImageButton
+        android:id="@+id/ib_add_member"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="26px"
+        android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
+        android:src="@mipmap/team_list_add_normal"
+        app:layout_auto_basewidth="height"/>
+</com.zhy.autolayout.AutoRelativeLayout>

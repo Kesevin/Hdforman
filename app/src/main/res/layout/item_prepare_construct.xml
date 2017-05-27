@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/textWhiteColor"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/rl_floor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26px"
+            android:layout_marginTop="40px"
+            android:text="中德英伦联邦"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/text_size_17" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_area"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@id/tv_area"
+            android:text="12栋1单元1004号"
+            android:textColor="@color/textLightDarkColor"
+            android:textSize="@dimen/def_text_size_sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginTop="28px"
+            android:layout_below="@+id/tv_location"
+            android:background="@color/colorDivide" />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_area"
+            android:paddingBottom="40px"
+            android:paddingLeft="26px"
+            android:layout_marginTop="28px"
+            android:paddingRight="26px">
+
+            <TextView
+                android:id="@+id/tv_start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_area"
+                android:layout_marginTop="28px"
+                android:text="预计开工时间:2016.08.12"
+                android:textColor="@color/textDarkColor"
+                android:textSize="@dimen/text_size_17" />
+
+            <TextView
+                android:id="@+id/tv_owner_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_start_time"
+                android:layout_marginTop="30px"
+                android:text="业主: 刘桑娥"
+                android:textColor="@color/textDarkColor"
+                android:textSize="@dimen/text_size_17" />
+
+            <ImageButton
+                android:id="@+id/ib_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+
+                android:background="@android:color/transparent"
+                android:src="@mipmap/call_phone" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

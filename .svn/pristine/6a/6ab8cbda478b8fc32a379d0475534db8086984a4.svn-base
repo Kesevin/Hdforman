@@ -1,0 +1,79 @@
+package com.dgg.hdforeman.mvp.presenter.project;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
+import com.dgg.hdforeman.app.utils.RxUtils;
+import com.dgg.hdforeman.mvp.contract.project.ProjectAcceptContract;
+import com.dgg.hdforeman.mvp.model.been.BaseJson;
+import com.dgg.hdforeman.mvp.model.been.ProjectAcceptResponse;
+import com.dgg.hdforeman.mvp.model.been.ProjectInfoResponse;
+import com.dgg.hdforeman.mvp.ui.project.adapter.BaseAdapter;
+import com.dgg.hdforeman.mvp.ui.project.adapter.ProjectAcceptAdapter;
+import com.jess.arms.di.scope.ActivityScope;
+import com.jess.arms.mvp.BasePresenter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import me.jessyan.rxerrorhandler.core.RxErrorHandler;
+import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
+
+import static com.dgg.hdforeman.mvp.ui.project.activity.IntermediateAcceptActivity.PROJECT_ACCEPT_RESPONSE_DATA;
+
+/**
+ * Created by kelvin on 2016/11/8.
+ */
+@ActivityScope
+public class ProjectAcceptPresenter extends BasePresenter<ProjectAcceptContract.Model, ProjectAcceptContract.View> {
+
+    private RxErrorHandler mErrorHandler;
+    private List<ProjectAcceptResponse> mDatas = new ArrayList<>();
+    private ProjectAcceptAdapter mAdapter;
+
+    @Inject
+    public ProjectAcceptPresenter(ProjectAcceptContract.Model model, ProjectAcceptContract.View view,
+                                  RxErrorHandler handler) {
+        super(model, view);
+        this.mErrorHandler = handler;
+    }
+
+    public void initAdapter(){
+        mAdapter = new ProjectAcceptAdapter(mDatas);
+        mRootView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(new BaseAdapter.OnRecyclerViewItemClickListener<ProjectAcceptResponse>() {
+            @Override
+            public void onItemClick(View view, ProjectAcceptResponse data, int position) {
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(PROJECT_ACCEPT_RESPONSE_DATA,data);
+                intent.putExtras(bundle);
+                mRootView.launchIntermediateAcceptActivity(intent);
+            }
+        });
+    }
+
+    public void requestList(ProjectInfoResponse data){
+        mDatas.clear();
+        mModel.getProjectAcceptList(data.getId())
+                .compose(RxUtils.<BaseJson<List<ProjectAcceptResponse>>>applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<BaseJson<List<ProjectAcceptResponse>>>(mErrorHandler) {
+                    @Override
+                    public void onNext(BaseJson<List<ProjectAcceptResponse>> json) {
+                        if (json.isSuccess()) {
+                            for(ProjectAcceptResponse response : json.getD()){
+                                mDatas.add(response);
+                            }
+                            mAdapter.notifyDataSetChanged();
+
+                        } else {
+                            mRootView.showMessage(json.getMsg());
+                        }
+                    }
+                });
+
+    }
+}

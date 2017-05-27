@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LabelRadioButton">
+        <!-- 显示 -->
+        <attr name="label_show" format="boolean"/>
+        <!-- 提示数字背景颜色 -->
+        <attr name="label_bg_color" format="color"/>
+        <!-- 提示数字颜色 -->
+        <attr name="label_txt_color" format="color"/>
+        <!-- 提示数字大小 -->
+        <attr name="label_txt_size" format="dimension|reference"/>
+        <!-- 提示数字 -->
+        <attr name="label_txt_num" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="AutoTabLayout">
+        <attr name="auto_textSize_base_width" format="boolean"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="RatingBar">
+        <!--星星间距-->
+        <attr format="dimension" name="starDistance"/>
+        <!--星星大小-->
+        <attr format="dimension" name="starSize"/>
+        <!--星星个数-->
+        <attr format="integer" name="starCount"/>
+        <!--星星空图-->
+        <attr format="reference" name="starEmpty"/>
+        <!--星星满图-->
+        <attr format="reference" name="starFill"/>
+        <!--星星满图-->
+        <attr format="boolean" name="clickEnable"/>
+    </declare-styleable>
+
+</resources>

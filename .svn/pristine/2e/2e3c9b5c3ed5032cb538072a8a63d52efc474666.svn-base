@@ -1,0 +1,19 @@
+package com.dgg.hdforeman.di.commponent;
+
+import com.dgg.hdforeman.di.module.ProjectListModule;
+import com.dgg.hdforeman.mvp.ui.project.activity.ProjectListActivity;
+import com.dgg.hdforeman.mvp.ui.project.activity.ProjectListNewActivity;
+import com.jess.arms.di.scope.ActivityScope;
+
+import dagger.Component;
+
+/**
+ * Created by kelvin on 2016/11/8
+ *
+ */
+@ActivityScope
+@Component(modules = ProjectListModule.class,dependencies = AppComponent.class)
+public interface ProjectListComponent {
+    void inject(ProjectListActivity activity);
+    void inject(ProjectListNewActivity activity);
+}

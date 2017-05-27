@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_upgrade_ride"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26px"
+        android:layout_marginTop="26px"
+        android:text="12墙打拆（卧室2）:5m²x40.00/m²=￥200.00"
+        android:textColor="@color/textDarkColor"
+        android:textSize="@dimen/def_text_size_sp" />
+</com.zhy.autolayout.AutoLinearLayout>

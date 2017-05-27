@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/IntermediateImageView"
+        android:layout_width="170px"
+        android:layout_height="170px"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/default_project_icon"
+        app:layout_auto_basewidth="height"/>
+
+</com.zhy.autolayout.AutoRelativeLayout>

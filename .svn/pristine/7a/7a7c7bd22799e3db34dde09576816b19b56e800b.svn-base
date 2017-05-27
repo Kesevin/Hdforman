@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView
+    android:id="@+id/tv_input_name"
+    android:layout_width="337dp"
+    android:layout_height="41dp"
+    android:gravity="center"
+    tools:text="卧室"
+    android:layout_gravity="center"
+    android:textColor="@drawable/tag_text_selector"
+    android:textSize="13sp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/tag_fllow_selector"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"/>

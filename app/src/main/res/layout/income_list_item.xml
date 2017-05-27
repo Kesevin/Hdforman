@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackground"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="@dimen/left_right_spacing">
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/will_time_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="5px"
+            android:layout_marginTop="5px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/project_item"
+                style="@style/tv_dark_style"
+                android:layout_marginRight="10px"
+                tools:text="项目结算:"
+                android:textColor="@color/textLightDarkColor" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/project_time"
+                style="@style/tv_dark_style"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="2016-10-25" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:id="@+id/no_pay"
+            style="@style/tv_dark_style"
+            android:layout_marginBottom="5px"
+            android:layout_marginTop="5px"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="业主未付款"
+            android:textColor="@color/colorLightRed"
+            android:visibility="gone" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/money_lab"
+                style="@style/tv_dark_style"
+                android:layout_marginRight="10px"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="余额:" />
+
+            <TextView
+                android:id="@+id/balance"
+                style="@style/tv_dark_style"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="¥200000" />
+
+            <TextView
+                android:id="@+id/variability_money"
+                style="@style/tv_dark_style"
+                android:layout_width="0dp"
+                android:layout_marginLeft="10px"
+                android:layout_weight="1"
+                android:gravity="right"
+                tools:text="¥300"
+                android:textColor="@color/colorLightRed" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:id="@+id/deal_state"
+        style="@style/tv_dark_style"
+        android:layout_centerInParent="true"
+        android:background="@drawable/btn_border_shape"
+        android:paddingBottom="2px"
+        android:paddingLeft="8px"
+        android:paddingRight="8px"
+        android:paddingTop="2px"
+        tools:text="处理中"
+        android:textColor="@color/colorLightRed"
+        android:textSize="24px"
+        android:visibility="gone"/>
+</com.zhy.autolayout.AutoRelativeLayout>
+

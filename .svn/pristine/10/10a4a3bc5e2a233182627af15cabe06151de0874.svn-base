@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     android:background="@color/textWhiteColor"
+                                     android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:background="@color/backgroundGray"/>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/px_42"
+        android:paddingBottom="@dimen/px_40"
+        android:paddingLeft="@dimen/px_24"
+        android:paddingRight="@dimen/px_24">
+
+        <com.dgg.hdforeman.mvp.ui.widget.CircleImageView
+            android:id="@+id/image_avatar"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:src="@mipmap/default_image"
+            app:layout_auto_basewidth="height"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="18px"
+            android:layout_toRightOf="@+id/image_avatar"
+            android:text="程大宇"
+            android:textColor="#323232"
+            android:textSize="@dimen/px_30"/>
+
+        <TextView
+            android:id="@+id/role"
+            android:layout_width="wrap_content"
+            android:layout_height="38px"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="@dimen/px_12"
+            android:layout_toRightOf="@id/name"
+            android:background="@drawable/btn_border_shape"
+            android:gravity="center"
+            android:paddingLeft="@dimen/px_16"
+            android:paddingRight="@dimen/px_16"
+            android:text="工长"
+            android:textColor="@color/colorOrange"
+            android:textSize="@dimen/px_26"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/role"
+            android:layout_marginLeft="18px"
+            android:layout_marginTop="@dimen/px_20"
+            android:layout_toRightOf="@+id/image_avatar"
+            android:text="2016.03.11 16:40"
+            android:textColor="#999999"
+            android:textSize="@dimen/px_22"/>
+
+        <TextView
+            android:id="@+id/starNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/px_22"
+            android:text="1923"
+            android:textSize="@dimen/px_22"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/image_star"
+            android:layout_width="28px"
+            android:layout_height="28px"
+            android:layout_toLeftOf="@id/starNumber"
+            android:layout_marginRight="@dimen/px_12"
+            android:layout_marginTop="@dimen/px_16"
+            android:background="@mipmap/list_thumb_up"
+            app:layout_auto_basewidth="height"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/which_stage"
+            android:layout_width="wrap_content"
+            android:layout_height="42px"
+            android:layout_below="@+id/image_avatar"
+            android:layout_marginTop="30px"
+            android:background="@drawable/btn_orange_shape"
+            android:gravity="center"
+            android:paddingLeft="16px"
+            android:paddingRight="16px"
+            android:text="木工阶段完成"
+            android:textSize="@dimen/px_28"
+            android:textColor="@color/textWhiteColor"/>
+
+        <cn.bingoogolapple.photopicker.widget.BGANinePhotoLayout
+            android:id="@+id/BGANinePhotoLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/which_stage"
+            android:layout_marginTop="@dimen/px_28"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ffffff">
+
+    <View
+        android:id="@+id/up_vertical_line"
+        android:layout_width="6px"
+        android:layout_height="59px"
+        android:layout_marginLeft="40px"
+        android:background="#eeeeee"
+        android:visibility="visible" />
+
+    <View
+        android:id="@+id/down_vertical_line"
+        android:layout_width="6px"
+        android:layout_height="59px"
+        android:layout_below="@+id/up_vertical_line"
+        android:layout_marginLeft="40px"
+        android:background="#eeeeee" />
+
+    <ImageView
+        android:id="@+id/progress_state"
+        android:layout_width="30px"
+        android:layout_height="30px"
+        android:layout_below="@id/up_vertical_line"
+        android:layout_marginLeft="28px"
+        android:layout_marginTop="-15px"
+        android:src="@drawable/grey_circle"
+        android:visibility="visible"
+        app:layout_auto_basewidth="height" />
+
+    <ImageView
+        android:id="@+id/progress_state_finish"
+        android:layout_width="40px"
+        android:layout_height="40px"
+        android:layout_below="@id/up_vertical_line"
+        android:layout_marginLeft="23px"
+        android:layout_marginTop="-20px"
+        android:background="@color/textWhiteColor"
+        android:src="@mipmap/yes_circle"
+        android:visibility="invisible"
+        app:layout_auto_basewidth="height"/>
+
+    <TextView
+        android:id="@+id/progress_sub_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26px"
+        android:layout_toRightOf="@id/progress_state"
+        android:layout_centerVertical="true"
+        android:text="铲墙及门窗保护"
+        android:textColor="@color/textDarkColor"
+        android:textSize="28px" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/finish_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="26px"
+        android:layout_centerVertical="true">
+        <TextView
+            android:id="@+id/progress_sub_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            tools:text="2016"
+            android:textColor="@color/textDarkColor"
+            android:textSize="28px"
+            android:layout_marginRight="30px"/>
+
+        <TextView
+            android:id="@+id/text_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完成"
+            android:textColor="@color/textDarkColor"
+            android:textSize="28px"
+            />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <Button
+        android:id="@+id/sub_item_finish"
+        android:layout_width="158px"
+        android:layout_height="72px"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="24px"
+        android:background="@drawable/btn_orange_shape"
+        android:text="完成"
+        android:textSize="@dimen/px_28"
+        android:textColor="@color/textWhiteColor"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/text_finish_noStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="26px"
+        android:layout_centerVertical="true"
+        android:text="阶段未开始"
+        android:textColor="@color/colorLightOrange"
+        android:textSize="28px"
+        android:visibility="gone"/>
+
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px">
+    </View>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/ProjectAcceptLayout"
+        style="@style/TextLayoutStyle">
+
+        <TextView
+            android:id="@+id/ProjectAcceptTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="水电及改造保护阶段"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/px_28"/>
+
+        <TextView
+            android:id="@+id/ProjectAcceptContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30px"
+            android:layout_toLeftOf="@+id/iv_accepted"
+            android:background="@drawable/text_green_shape"
+            android:padding="10px"
+            android:text="已验收"
+            android:textColor="@color/textGreenColor"
+            android:textSize="@dimen/px_26"/>
+
+        <ImageView
+            android:id="@+id/iv_accepted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/list_jump"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

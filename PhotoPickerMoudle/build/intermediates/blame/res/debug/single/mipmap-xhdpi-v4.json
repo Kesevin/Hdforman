@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\retry.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xhdpi\\retry.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\nav_return.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xhdpi\\nav_return.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\btn_selected.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xhdpi\\btn_selected.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\del_pho.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xhdpi\\del_pho.png"
+    },
+    {
+        "merged": "D:\\hdforeman\\PhotoPickerMoudle\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\btn_normal.png",
+        "source": "D:\\hdforeman\\PhotoPickerMoudle\\src\\main\\res\\mipmap-xhdpi\\btn_normal.png"
+    }
+]

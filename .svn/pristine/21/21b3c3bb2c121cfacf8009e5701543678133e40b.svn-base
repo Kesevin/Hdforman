@@ -1,0 +1,33 @@
+package com.dgg.hdworkers.app.utils;
+
+import android.content.Context;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+
+import com.dgg.hdworkers.app.HDApplication;
+
+import java.util.Map;
+
+/**
+ * Created by Administrator on 2016/11/23.
+ */
+
+public class CookieUtil  {
+
+    public static void  setCookieMethod(Context context, String url){ //需要webView的cookie时候直接调用这个方法就可以
+        CookieSyncManager.createInstance(context);
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+        HDApplication application = (HDApplication) context.getApplicationContext();
+        Map<String, String> cookies = application.mCookie;
+        //拼接成想要格式
+        if(cookies != null) {
+            for (String key : cookies.keySet()) {
+                String value = cookies.get(key);
+                cookieManager.setCookie(url, value);
+            }
+//        String cookieString = cookieManager.getCookie(url);
+            CookieSyncManager.getInstance().sync();
+        }
+    }
+}

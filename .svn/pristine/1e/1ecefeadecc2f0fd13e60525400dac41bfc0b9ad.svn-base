@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_height="match_parent">
+
+
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_bar_height"
+        android:background="@color/colorOrange"
+        app:contentInsetStart="0dp">
+
+
+        <ImageView
+            android:id="@+id/toolbar_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@mipmap/back_nor"/>
+
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#ffffff"
+            android:text="项目测量"
+            android:textSize="36px"/>
+
+        <TextView
+            android:id="@+id/toolbar_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="20px"
+            android:background="@null"
+            android:text="增加空间"
+            android:textColor="@color/white"/>
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_space"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/px_20"
+        android:descendantFocusability="afterDescendants"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tv_calculate"
+        android:layout_weight="1"></android.support.v7.widget.RecyclerView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="@drawable/btn_orange_shape"
+        android:text="计算套内建筑面积"
+        android:textColor="@color/white"
+        android:id="@+id/tv_calculate"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textSize="28px"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:id="@+id/iv_mask"
+            android:background="@color/translate_60"
+            android:layout_height="match_parent"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

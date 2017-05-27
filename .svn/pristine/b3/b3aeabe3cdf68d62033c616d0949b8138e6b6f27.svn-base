@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        style="@style/toolbar_style"
+        android:padding="0dp"
+        app:contentInsetStart="0dp">
+
+        <include layout="@layout/title_bar_layout" />
+
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+    <ScrollView
+        android:id="@+id/sv_project_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/project_info_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_spacing"
+                android:background="@drawable/common_layout_press_selector"
+                android:padding="@dimen/px_30"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                   >
+
+
+                    <TextView
+                        android:id="@+id/tv_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_project_info"
+                        android:textColor="@color/textLightDarkColor"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/owner_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_info"
+                        android:layout_marginTop="34px"
+                        android:text="李先生  /  122m²"
+                        android:textColor="@color/textDarkColor" />
+
+                    <TextView
+                        android:id="@+id/house_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="26px"
+                        android:text="中德英伦城邦  12栋1单元1004号"
+                        android:textColor="@color/textLightDarkColor" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/jump" />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200px"
+                android:layout_marginTop="30px"
+                android:background="@color/textWhiteColor"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingLeft="30dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5px"
+                        android:text="开工时间"
+                        android:textColor="@color/textGreyColor"
+                        android:textSize="@dimen/def_text_size_sp" />
+
+                    <TextView
+                        android:id="@+id/start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5px"
+                        android:text="10月2号"
+                        android:textColor="@color/textLightBlackColor"
+                        android:textSize="@dimen/text_size_17" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/period"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10天"
+                        android:gravity="center"
+                        android:textColor="@color/textLightDarkColor"
+                        android:drawableBottom="@mipmap/point_arrow"
+                        android:textSize="@dimen/def_text_size_sp" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingRight="30dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5px"
+                        android:text="竣工时间"
+                        android:textColor="@color/textGreyColor"
+                        android:textSize="@dimen/def_text_size_sp" />
+
+                    <TextView
+                        android:id="@+id/end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5px"
+                        android:text="10月12号"
+                        android:textColor="@color/textLightBlackColor"
+                        android:textSize="@dimen/text_size_17" />
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@drawable/common_layout_press_selector"
+                android:orientation="vertical">
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:id="@+id/project_list"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/common_layout_press_selector"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/px_40"
+                    android:paddingTop="@dimen/px_40">
+
+                    <TextView
+                        android:id="@+id/tv_project_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="26px"
+                        android:text="项目清单"
+                        android:textColor="@color/textLightDarkColor" />
+
+                    <TextView
+                        android:id="@+id/tv_project_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_project_list"
+                        android:layout_marginTop="20px"
+                        android:paddingLeft="26px"
+                        android:text="工程造价:"
+                        android:textColor="@color/textDarkColor" />
+
+                    <TextView
+                        android:id="@+id/tv_project_total_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/tv_project_total"
+                        android:layout_toRightOf="@id/tv_project_total"
+                        android:text="￥ 2732505"
+                        android:textColor="@color/textRedColor" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="26px"
+                        android:src="@mipmap/jump" />
+
+
+                </com.zhy.autolayout.AutoRelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorDivide" />
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:id="@+id/construction_progress_lay"
+                    android:background="@drawable/common_layout_press_selector"
+                    style="@style/TextLayoutStyle"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_construction_progress"
+                        style="@style/TextTitleStyle"
+                        android:text="施工进度" />
+
+                    <TextView
+                        android:id="@+id/work_type"
+                        style="@style/TextContentStyle"
+                        android:layout_below="@id/tv_construction_progress"
+                        android:layout_marginTop="28px"
+                        android:text="水电，瓦工，木工" />
+
+                    <TextView
+                        android:id="@+id/construction_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30px"
+                        android:layout_toLeftOf="@+id/iv_construction"
+                        android:background="@drawable/text_orange_shape"
+                        android:padding="10px"
+                        android:text="施工中"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="@dimen/px_28" />
+
+                    <ImageView
+                        android:id="@+id/iv_construction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/jump" />
+
+                </com.zhy.autolayout.AutoRelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorDivide" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/alive_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/common_layout_press_selector"
+                    android:paddingBottom="@dimen/px_40"
+                    android:paddingTop="@dimen/px_40"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_alive"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26px"
+                        android:layout_weight="1"
+                        android:text="工地直播" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="26px"
+                        android:src="@mipmap/jump" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorDivide"
+                    android:visibility="gone"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/materials_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/common_layout_press_selector"
+                    android:paddingBottom="@dimen/px_40"
+                    android:paddingTop="@dimen/px_40"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tv_materials"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26px"
+                        android:layout_weight="1"
+                        android:text="施工材料" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="26px"
+                        android:src="@mipmap/jump" />
+
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorDivide" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/sketch_map_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/common_layout_press_selector"
+                    android:paddingBottom="@dimen/px_40"
+                    android:paddingTop="@dimen/px_40"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26px"
+                        android:layout_weight="1"
+                        android:text="装修示意图" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="26px"
+                        android:src="@mipmap/jump" />
+
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorDivide" />
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:id="@+id/team_lay"
+                    style="@style/TextLayoutStyle"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/tv_team"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="施工团队"
+                        android:textSize="@dimen/px_28"/>
+
+                    <ImageView
+                        android:id="@+id/iv_team"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/list_jump" />
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:id="@+id/ll_team"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_team"
+                        android:layout_marginRight="20px"
+                        android:layout_marginTop="30px"
+                        android:layout_toLeftOf="@id/iv_team">
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                </com.zhy.autolayout.AutoRelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorDivide" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/acceptance_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/common_layout_press_selector"
+                    android:paddingBottom="@dimen/px_40"
+                    android:paddingTop="@dimen/px_40"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26px"
+                        android:layout_weight="1"
+                        android:text="工程验收" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="26px"
+                        android:src="@mipmap/jump" />
+
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60px" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/upload_license_lay"
+        android:layout_width="match_parent"
+        android:layout_height="98px"
+        android:background="@color/colorOrange"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="开工\n(上传装修许可证)"
+            android:gravity="center"
+            android:textColor="@drawable/btn_text_selector"
+           />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoLinearLayout>

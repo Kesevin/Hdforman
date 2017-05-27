@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/progress_item_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorDivide"/>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:paddingTop="36px"
+        android:paddingBottom="36px"
+        android:paddingLeft="24px"
+        android:paddingRight="24px"
+       >
+    <TextView
+        android:id="@+id/progress_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="水电及改造保护阶段-15天"
+        android:textColor="@color/textDarkColor"
+        android:textSize="30px" />
+
+    <TextView
+        android:id="@+id/progress_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="06-12至06-20"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:textColor="@color/textLightDarkColor"
+        android:textSize="30px" />
+
+
+    <ImageView
+        android:id="@+id/expand_sub_item"
+        android:layout_width="36px"
+        android:layout_height="36px"
+        android:layout_marginLeft="24px"
+        android:background="@mipmap/list_btn_weizhankai"
+        app:layout_auto_basewidth="height" />
+</com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

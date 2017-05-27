@@ -1,0 +1,21 @@
+package com.dgg.hdforeman.mvp.ui.project.holder;
+
+import android.view.View;
+
+import com.dgg.hdforeman.mvp.model.been.ProjectTotalBean;
+
+/**
+ * Created by kelvin on 2016/11/15.
+ */
+
+public class ProjectListPriceHolder extends BaseHolder<ProjectTotalBean> {
+
+    public ProjectListPriceHolder(View itemView) {
+        super(itemView);
+    }
+
+    @Override
+    public void setData(ProjectTotalBean data) {
+
+    }
+}

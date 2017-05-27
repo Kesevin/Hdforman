@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/additional_item_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        style="@style/auto_toolbar_style">
+
+        <ImageButton
+            android:id="@+id/toolbar_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@mipmap/back_nor" />
+
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="36px" />
+
+        <TextView
+            android:id="@+id/toolbar_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="20px"
+            android:text="增加"
+            android:textColor="@color/textWhiteColor"
+            android:textSize="15sp" />
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backgroundGray"></android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include layout="@layout/layout_no_free_item" />
+</com.zhy.autolayout.AutoRelativeLayout>

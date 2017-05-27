@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="20px"
+            android:background="@android:color/white">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/insurance_title"
+                    android:layout_width="464px"
+                    android:layout_height="72px"
+                    android:background="@color/colorOrange"
+                    android:textColor="@android:color/white"
+                    android:text="人身意外险"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"/>
+                <ImageView
+                    android:layout_width="54px"
+                    android:layout_height="70px"
+                    android:layout_toLeftOf="@+id/insurance_title"
+                    android:layout_marginTop="10px"
+                    android:layout_marginRight="-10px"/>
+                <ImageView
+                    android:layout_width="54px"
+                    android:layout_height="70px"
+                    android:layout_toRightOf="@+id/insurance_title"
+                    android:layout_marginTop="10px"
+                    android:layout_marginLeft="-10px"/>
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""/>
+        </LinearLayout>
+    </ScrollView>
+    
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,234 @@
+package com.dgg.hdforeman.mvp.presenter.project;
+
+import android.util.Log;
+import android.view.View;
+
+import com.dgg.hdforeman.app.utils.RxUtils;
+import com.dgg.hdforeman.mvp.contract.project.ConstructProgressContract;
+import com.dgg.hdforeman.mvp.model.been.BaseData;
+import com.dgg.hdforeman.mvp.model.been.BaseJson;
+import com.dgg.hdforeman.mvp.model.been.ConstructProgress;
+import com.dgg.hdforeman.mvp.model.been.ConstructProgressBean;
+import com.dgg.hdforeman.mvp.model.been.ProjectAcceptResponse;
+import com.dgg.hdforeman.mvp.model.been.ProjectInfoResponse;
+import com.dgg.hdforeman.mvp.ui.project.adapter.BaseAdapter;
+import com.dgg.hdforeman.mvp.ui.project.adapter.ConstructProgressAdapter;
+import com.jess.arms.di.scope.ActivityScope;
+import com.jess.arms.mvp.BasePresenter;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import me.jessyan.rxerrorhandler.core.RxErrorHandler;
+import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+
+
+/**
+ * Created by kelvin on 2016/11/7.
+ */
+
+@ActivityScope
+public class ConstructProgressPresenter extends BasePresenter<ConstructProgressContract.Model, ConstructProgressContract.View> {
+
+    private RxErrorHandler mErrorHandler;
+    private List<ConstructProgressBean> mDatas = new ArrayList<>();
+    private ConstructProgressAdapter mAdapter;
+    private int shutdown;
+    private List<ConstructProgress.PDBean.DBean> stage=new ArrayList<>();
+    private boolean isCanFinish;
+
+    @Inject
+    public ConstructProgressPresenter(ConstructProgressContract.Model model, ConstructProgressContract.View view,
+                                      RxErrorHandler mErrorHandler) {
+        super(model, view);
+        this.mErrorHandler = mErrorHandler;
+    }
+
+    public void initAdapter() {
+        mAdapter = new ConstructProgressAdapter(mDatas);
+        mAdapter.setRootView(mRootView);
+        mRootView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(new BaseAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View view, Object data, int position) {
+
+            }
+        });
+    }
+
+    public void requestList(final ProjectInfoResponse data , final int from) {
+        mDatas.clear();
+        String id = data.getId();
+
+        mModel.getConstructProgressInfo(id)
+                .compose(RxUtils.<BaseJson<ConstructProgress.PDBean>>applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<BaseJson<ConstructProgress.PDBean>>(mErrorHandler) {
+                    @Override
+                    public void onNext(BaseJson<ConstructProgress.PDBean> json) {
+                        if (json.isSuccess()) {
+                            shutdown=json.getD().getShutdown();
+                            stage=json.getD().getStage();
+                            int index=0;
+                            int num=0;
+                            if(from==1) {
+                                for (ConstructProgress.PDBean.DBean bean : json.getD().getStage()) {
+                                    if (bean.getPs_state()>0&&bean.getPs_state()<6) {
+                                        index = json.getD().getStage().indexOf(bean);
+                                        isCanFinish = true;
+                                    }
+                                    for (int i = 0; i < bean.getList().size(); i++) {
+                                        if (isCanFinish && num > index) {
+                                            bean.getList().get(i).setCanFinish(true);
+                                        } else {
+                                            bean.getList().get(i).setCanFinish(false);
+                                        }
+                                    }
+                                    ConstructProgressBean constructProgressBean = new ConstructProgressBean();
+                                    constructProgressBean.setType(0);
+                                    constructProgressBean.setConstructProgressTitle(bean);
+
+                                    if (bean.getPs_state()>0&&bean.getPs_state()<6) {
+                                        constructProgressBean.setExpanded(true);
+                                        mDatas.add(constructProgressBean);
+                                        for (int i = 0; i < bean.getList().size(); i++) {
+                                            bean.getList().get(i).setCanFinish(false);
+                                            ConstructProgressBean itemBean = new ConstructProgressBean();
+                                            itemBean.setConstructProgressInfo(bean.getList().get(i));
+                                            itemBean.setConstructProgressTitle(bean);
+                                            itemBean.setType(1);
+                                            if (i == 0) {
+                                                itemBean.getConstructProgressInfo().setFirst(true);
+                                            }
+                                            if (i == bean.getList().size() - 1) {
+                                                itemBean.getConstructProgressInfo().setEnd(true);
+                                            }
+                                            mDatas.add(itemBean);
+                                        }
+                                    } else {
+                                        mDatas.add(constructProgressBean);
+                                    }
+                                    num++;
+                                }
+                            }else{
+                                for (ConstructProgress.PDBean.DBean bean : json.getD().getStage()) {
+                                    ConstructProgressBean constructProgressBean = new ConstructProgressBean();
+                                    constructProgressBean.setType(0);
+                                    constructProgressBean.setConstructProgressTitle(bean);
+                                    mDatas.add(constructProgressBean);
+                                }
+                            }
+                            mAdapter.notifyDataSetChanged();
+                            mRootView.updatePop(shutdown);
+                        } else {
+                            mRootView.showMessage(json.getMsg());
+                        }
+                    }
+                });
+    }
+
+    /**
+     * 根据子节点ID修改其状态
+     * @param data
+     */
+    public void updateStageNode(final ConstructProgressBean data, final int position){
+        mModel.updateStageNode(data.getConstructProgressInfo().getSn_id())
+                .subscribeOn(Schedulers.io())
+                .compose(RxUtils.<BaseJson>applySchedulers(mRootView))
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new ErrorHandleSubscriber<BaseJson>(mErrorHandler) {
+                    @Override
+                    public void onNext(BaseJson json) {
+                        if (json.isSuccess()) {
+                            data.getConstructProgressInfo().setSn_state(1);
+                            SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            String date=format.format(new Date());
+                            data.getConstructProgressInfo().setSn_enddate(date);
+                            mAdapter.notifyItemChanged(position);
+                            boolean isEnd=true;
+                            for (ConstructProgress.PDBean.DBean.ListBean listBean: data.getConstructProgressTitle().getList() ) {
+                                if(listBean.getSn_state()==0){
+                                    isEnd=false;
+                                    break;
+                                }
+                            }
+                            if(isEnd){
+//                                ProjectAcceptResponse projectAcceptResponse=new ProjectAcceptResponse();
+//                                projectAcceptResponse.setId(data.getConstructProgressTitle().getPs_id());
+//                                projectAcceptResponse.setPs_stname(data.getConstructProgressTitle().getPs_stname());
+//                                projectAcceptResponse.setPs_state(data.getConstructProgressTitle().getPs_state());
+//                                mRootView.setDialog(projectAcceptResponse);
+                                mRootView.showMessage("请等待监理验收!");
+                            }
+                        } else {
+                            mRootView.showMessage(json.getMsg());
+                        }
+                    }
+                });
+    }
+
+    /**
+     * 展开或关闭进度信息 状态详情
+     * @param isExpanded
+     * @param dBean
+     */
+    public void onExpandImageViewClick(boolean isExpanded, ConstructProgressBean dBean) {
+
+        int position = mDatas.indexOf(dBean);
+        int itemSize = dBean.getConstructProgressTitle().getList().size();
+
+        Log.d("11111111111",position+"");
+        if (isExpanded) {
+
+            List<ConstructProgressBean> itemData = new ArrayList<>();
+            for (int i = 0; i < itemSize; i++) {
+
+                ConstructProgressBean constructProgressBean = new ConstructProgressBean();
+                constructProgressBean.setType(1);
+                if(i == 0){
+                    dBean.getConstructProgressTitle().getList().get(i).setFirst(true);
+                }
+                if(i == itemSize - 1){
+                    dBean.getConstructProgressTitle().getList().get(i).setEnd(true);
+                }
+                constructProgressBean.setConstructProgressInfo(dBean.getConstructProgressTitle().getList().get(i));
+                itemData.add(constructProgressBean);
+            }
+
+            mDatas.addAll(position + 1, itemData);
+        } else {
+
+            for (int i = 0; i < itemSize; i++) {
+                mDatas.remove(position + 1);
+            }
+
+        }
+
+        mAdapter.notifyDataSetChanged();
+    }
+
+    public void applyStartWork(String proId){
+        mModel.applyStartWork(proId)
+                .subscribeOn(Schedulers.io())
+                .compose(RxUtils.<BaseData>applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<BaseData>(mErrorHandler) {
+                    @Override
+                    public void onNext(BaseData baseData) {
+                        if(baseData.isSuccess()){
+                            mRootView.showMessage("申请复工成功");
+                            shutdown=0;
+                            mRootView.updatePop(shutdown);
+                        }else{
+                            mRootView.showMessage(baseData.getMsg());
+                        }
+                    }
+                });
+    }
+
+
+}

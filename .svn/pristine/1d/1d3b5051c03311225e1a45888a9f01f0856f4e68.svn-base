@@ -1,0 +1,189 @@
+package com.dgg.hdforeman.mvp.presenter.project;
+
+import android.app.Application;
+import android.content.Intent;
+import android.os.Environment;
+import android.text.TextUtils;
+import android.view.View;
+
+import com.dgg.hdforeman.app.HDApplication;
+import com.dgg.hdforeman.app.utils.CommonUtil;
+import com.dgg.hdforeman.app.utils.RxUtils;
+import com.dgg.hdforeman.mvp.contract.project.IntermediateAcceptContract;
+import com.dgg.hdforeman.mvp.model.been.BaseJson;
+import com.dgg.hdforeman.mvp.model.been.IntermediateAcceptResponse;
+import com.dgg.hdforeman.mvp.model.been.InviteRequest;
+import com.dgg.hdforeman.mvp.model.been.ProjectAcceptResponse;
+import com.dgg.hdforeman.mvp.model.been.ProjectInfoResponse;
+import com.dgg.hdforeman.mvp.ui.project.activity.FieldLiveActivity;
+import com.dgg.hdforeman.mvp.ui.project.activity.HDPhotoPreviewActivity;
+import com.dgg.hdforeman.mvp.ui.project.adapter.IntermediateImgAdapter;
+import com.jess.arms.di.scope.ActivityScope;
+import com.jess.arms.mvp.BasePresenter;
+import com.jess.arms.utils.PermissionUtil;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import cn.bingoogolapple.photopicker.activity.PhotoPickerActivity;
+import me.jessyan.rxerrorhandler.core.RxErrorHandler;
+import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
+
+import static com.dgg.hdforeman.mvp.ui.project.activity.FieldLiveActivity.REQUEST_CODE_CHOOSE_PHOTO;
+import static com.dgg.hdforeman.mvp.ui.project.activity.HDPhotoPreviewActivity.CHOOSE_MAX_COUNT;
+import static com.dgg.hdforeman.mvp.ui.project.activity.HDPhotoPreviewActivity.EXTRA_SELECTED_IMAGES;
+import static com.dgg.hdforeman.mvp.ui.project.activity.HDPhotoPreviewActivity.HAS_SELECTED_IMG;
+
+/**
+ * Created by kelvin on 2016/11/8.
+ */
+
+@ActivityScope
+public class IntermediateAcceptPresenter extends BasePresenter<IntermediateAcceptContract.Model, IntermediateAcceptContract.View> {
+
+    private RxErrorHandler mErrorHandler;
+    private ArrayList<String> imgUrlData = new ArrayList<>();
+    private IntermediateImgAdapter mAdapter;
+    private HDApplication mApplication;
+    ArrayList<String> tmpImgUr = new ArrayList<>();
+    private String ids="";
+    @Inject
+    public IntermediateAcceptPresenter(IntermediateAcceptContract.Model model, IntermediateAcceptContract.View view,
+                                       RxErrorHandler handler, Application application) {
+        super(model, view);
+        this.mErrorHandler = handler;
+        this.mApplication = (HDApplication)application;
+    }
+
+    public void initAdapter() {
+        mAdapter = new IntermediateImgAdapter(imgUrlData);
+        mRootView.setAdapter(mAdapter);
+        mAdapter.setOnPreviewClickListener(new IntermediateImgAdapter.OnPreviewClickListener() {
+            @Override
+            public void onItemPreview(View view, int position) {
+                tmpImgUr.clear();
+                for(int i=0;i<imgUrlData.size();i++){
+                    tmpImgUr.add(CommonUtil.getImageUrl(imgUrlData.get(i),400,800)) ;
+                }
+                mRootView.jumpToPhotoPreview(tmpImgUr,position);
+            }
+        });
+    }
+
+    public void requestList(ProjectInfoResponse projectData, ProjectAcceptResponse acceptData) {
+
+        mModel.getIntermediateAcceptList(projectData.getId(), acceptData.getId())
+                .compose(RxUtils.<BaseJson<IntermediateAcceptResponse>>applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<BaseJson<IntermediateAcceptResponse>>(mErrorHandler) {
+                    @Override
+                    public void onNext(BaseJson<IntermediateAcceptResponse> json) {
+                        if (json.isSuccess()) {
+                            mRootView.updateLayout(json.getD());
+//                            json.getD().setPs_yspicture("http://d.hiphotos.baidu.com/image/pic/item/5882b2b7d0a20cf482c772bf73094b36acaf997f.jpg,http://image.xcar.com.cn/attachments/a/day_140718/2014071812_895ed862cbb83aa754de9HRD7XvXMH1X_sst_560.jpg,http://www.bz55.com/uploads/allimg/150829/140-150R9111932.jpg");
+                            if (!TextUtils.isEmpty(json.getD().getPs_yspicture())) {
+                                ids=  json.getD().getPs_yspicture();
+                                imgUrlData.clear();
+                                String[] imgUrlId = json.getD().getPs_yspicture().split(",");
+                                for (int i = 0; i < imgUrlId.length; i++) {
+                                    imgUrlData.add(imgUrlId[i]);
+                                }
+
+                                mAdapter.notifyDataSetChanged();
+                            }
+
+                        } else {
+                            mRootView.showMessage(json.getMsg());
+                        }
+                    }
+                });
+    }
+
+    /**
+     * 跳转到图片选择界面
+     */
+    public void choosePic() {
+        if (imgUrlData != null && imgUrlData.size() != 0 && imgUrlData.size() >= 15) {
+            mRootView.showMessage("最多上传15张图片");
+        } else {
+            PermissionUtil.launchCamera(new PermissionUtil.RequestPermission() {
+                @Override
+                public void onRequestPermissionSuccess() {
+                    File takePhotoDir = new File(Environment.getExternalStorageDirectory(), "HDPhotoPickerTakePhoto");
+                    Intent intent = PhotoPickerActivity.newIntent(mApplication, takePhotoDir, 15 - imgUrlData.size(), null, true);
+                    mRootView.launchActivityForResult(intent, REQUEST_CODE_CHOOSE_PHOTO);
+                }
+            }, mApplication.getAppComponent().rxPermissions(), mRootView, mApplication.getAppComponent().rxErrorHandler());
+
+        }
+    }
+
+    /**
+     * 跳转到图片视图页面
+     *
+     * @param intent
+     */
+    public void previewPic(Intent intent,ProjectInfoResponse mData,ProjectAcceptResponse acceptance) {
+
+        Intent i = new Intent(mApplication, HDPhotoPreviewActivity.class);
+        i.putExtra(CHOOSE_MAX_COUNT, 15 );
+        i.putStringArrayListExtra(EXTRA_SELECTED_IMAGES, PhotoPickerActivity.getSelectedImages(intent));
+        i.putExtra("project_info", mData);
+        i.putExtra("acceptance", acceptance);
+        i.putExtra("alreadyhave", ids);
+        i.putExtra("from", 103);
+        mRootView.launchActivityForResult(i, 3);
+    }
+
+public  void updataImg(String backids){
+
+    if (!TextUtils.isEmpty(backids)) {
+        imgUrlData.clear();
+       ids=backids;
+        String[] imgUrlId = backids.split(",");
+        for (int i = 0; i < imgUrlId.length; i++) {
+            imgUrlData.add(imgUrlId[i]);
+        }
+        mAdapter.notifyDataSetChanged();
+    }
+
+}
+
+
+    /**
+     * 添加图片
+     * @param intent
+     */
+    public void upLoadPicture(Intent intent) {
+        List<String> upLoadPicData = intent.getStringArrayListExtra(HAS_SELECTED_IMG);
+        imgUrlData.addAll(upLoadPicData);
+
+        mAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * 邀请业主验收
+     * @param work 工程量
+     * @param projectAcceptData 验收数据
+     */
+    public void invite(List<InviteRequest.WorkBean> work, ProjectAcceptResponse projectAcceptData){
+
+//        String worknum = TextUtils.isEmpty(workCount) ? "0" : String.format(mApplication.getString(R.string.str_intermediate_work),Double.parseDouble(workCount));
+        mModel.ownerAcceptance(work,projectAcceptData.getId())
+                .compose(RxUtils.<BaseJson>applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<BaseJson>(mErrorHandler) {
+                    @Override
+                    public void onNext(BaseJson json) {
+                        if (json.isSuccess()) {
+                            mRootView.showMessage("邀请业主验收成功");
+                            mRootView.killMyself();
+                        } else {
+                            mRootView.showMessage(json.getMsg());
+                        }
+                    }
+                });
+    }
+
+}

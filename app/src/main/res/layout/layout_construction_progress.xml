@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_construction_progress"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_construction_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26px"
+        android:layout_marginTop="30px"
+        android:text="施工进度"
+        android:textColor="@color/textLightDarkColor" />
+
+    <TextView
+        android:id="@+id/tv_work_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_construction_progress"
+        android:layout_marginLeft="26px"
+        android:layout_marginTop="28px"
+        android:text="水电，瓦工，木工" />
+
+    <TextView
+        android:id="@+id/tv_construction_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/text_orange_shape"
+        android:text="施工中"
+        android:padding="10px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="54px"
+        android:layout_toLeftOf="@+id/iv_construction"
+        android:textColor="@color/colorOrange" />
+
+    <ImageView
+        android:id="@+id/iv_construction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/list_jump"
+        android:layout_marginRight="26px"
+        android:layout_marginTop="62px"
+        android:layout_alignParentRight="true"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_below="@id/tv_work_type"
+        android:layout_marginTop="38px"
+        android:background="@color/colorDivide" />
+</com.zhy.autolayout.AutoRelativeLayout>

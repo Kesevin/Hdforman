@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Action bar background -->
+    <!-- <item name="actionbar_bg" type="drawable">#49B786</item> -->
+	<drawable name="actionbar_bg">#f4723e</drawable>
+</resources>

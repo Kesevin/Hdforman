@@ -1,0 +1,188 @@
+package com.dgg.hdforeman.mvp.ui.project.activity;
+
+
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+
+import com.dgg.hdforeman.R;
+import com.dgg.hdforeman.di.commponent.AppComponent;
+import com.dgg.hdforeman.di.commponent.DaggerProjectListComponent;
+import com.dgg.hdforeman.di.module.ProjectListModule;
+import com.dgg.hdforeman.mvp.contract.project.ProjectListContract;
+import com.dgg.hdforeman.mvp.model.been.ProjectInfoResponse;
+import com.dgg.hdforeman.mvp.model.been.ProjectTotalBean;
+import com.dgg.hdforeman.mvp.presenter.project.ProjectListPresenter;
+import com.dgg.hdforeman.mvp.ui.project.adapter.BaseAdapter;
+import com.jess.arms.utils.CharactorHandler;
+import com.jess.arms.utils.PermissionUtil;
+import com.jess.arms.utils.UiUtils;
+import com.tbruyelle.rxpermissions.RxPermissions;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+
+import static com.jess.arms.utils.Preconditions.checkNotNull;
+
+
+/**
+ * Created by kelvin on 2016/11/4.
+ */
+
+public class ProjectListActivity extends BacksActivity<ProjectListPresenter> implements ProjectListContract.View, SwipeRefreshLayout.OnRefreshListener {
+
+    @BindView(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView(R.id.recyclerViewContent)
+    RecyclerView mRecyclerViewContent;
+    @BindView(R.id.pm_baseprices)
+    TextView mBaseprices;//标准包
+    @BindView(R.id.pm_upgradeprice)
+    TextView mUpgradeprice;//个性包
+    @BindView(R.id.pm_managefee)
+    TextView mManagefee;//工程管理费
+    @BindView(R.id.pm_protectfee)
+    TextView mProtectfee;//成品保护费
+    @BindView(R.id.pm_cleanfee)
+    TextView mCleanfee;//日常清洁费
+    @BindView(R.id.pm_quote)
+    TextView mQuote;//工程总价
+    @BindView(R.id.total_area)
+    TextView totalArea;//总面积
+
+    public static final String PROJECT_LIST_DATA = "project_list_data";
+    @BindView(R.id.right_menu)
+    TextView rightMenu;
+    @BindView(R.id.title)
+    TextView title;
+
+    private ProjectInfoResponse mData;
+
+    @Override
+    protected void setupActivityComponent(AppComponent appComponent) {
+        DaggerProjectListComponent
+                .builder()
+                .appComponent(appComponent)
+                .projectListModule(new ProjectListModule(this))
+                .build()
+                .inject(this);
+    }
+
+    @Override
+    protected View initView() {
+        return LayoutInflater.from(this).inflate(R.layout.project_list_activity, null, false);
+    }
+
+    @Override
+    protected void initData() {
+        rightMenu.setText("联系业主");
+        rightMenu.setVisibility(View.VISIBLE);
+        title.setText("项目清单");
+        mSwipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mData = (ProjectInfoResponse) getIntent().getExtras().getSerializable(PROJECT_LIST_DATA);
+        initRecyclerView();
+        mPresenter.initAdapter();
+        qryData();
+    }
+
+    private void qryData() {
+        mPresenter.requestList(mData.getId());
+    }
+
+    /**
+     * 初始化RecyclerView
+     */
+    private void initRecyclerView() {
+        mRecyclerViewContent.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerViewContent.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerViewContent.setNestedScrollingEnabled(false);
+    }
+
+    @Override
+    public void setContentAdapter(BaseAdapter adapter) {
+        mRecyclerViewContent.setAdapter(adapter);
+    }
+
+    @Override
+    public void updateLayout(ProjectTotalBean data,String total) {
+        if (data == null) {
+            return;
+        }
+
+        mBaseprices.setText(String.format(getString(R.string.str_project_list_price), CharactorHandler.excludeEmpty(data.getPm_baseprices())));
+        mUpgradeprice.setText(String.format(getString(R.string.str_project_list_price), CharactorHandler.excludeEmpty(data.getPm_upgradeprice())));
+        mManagefee.setText(String.format(getString(R.string.str_project_list_price), CharactorHandler.excludeEmpty(data.getPm_managefee())));
+        mProtectfee.setText(String.format(getString(R.string.str_project_list_price), CharactorHandler.excludeEmpty(data.getPm_protectfee())));
+        mCleanfee.setText(String.format(getString(R.string.str_project_list_price), CharactorHandler.excludeEmpty(data.getPm_cleanfee())));
+        mQuote.setText(String.format(getString(R.string.str_project_list_price), CharactorHandler.excludeEmpty(data.getPm_quote())));
+        totalArea.setText(total+"m²");
+    }
+
+    @Override
+    public void setPriceAdapter(BaseAdapter adapter) {
+
+    }
+
+    @Override
+    public void onRefresh() {
+        mPresenter.requestList(mData.getId());
+    }
+
+    @OnClick(R.id.right_menu)
+    public void onClick() {
+        callPhone();
+    }
+
+    /**
+     * 给业主打电话
+     */
+    public void callPhone() {
+        PermissionUtil.callPhone(new PermissionUtil.RequestPermission() {
+            @Override
+            public void onRequestPermissionSuccess() {
+                if (ActivityCompat.checkSelfPermission(ProjectListActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
+                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"
+                        + mData.getPm_cuscontactno())));
+            }
+        }, RxPermissions.getInstance(this), this, mHDApplication.getAppComponent().rxErrorHandler());
+    }
+
+    @Override
+    public void launchActivity(Intent intent) {
+
+    }
+
+    @Override
+    public void killMyself() {
+
+    }
+
+    @Override
+    public void showLoading() {
+        mSwipeRefreshLayout.setRefreshing(true);
+    }
+
+    @Override
+    public void hideLoading() {
+        mSwipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void showMessage(@NonNull String message) {
+        checkNotNull(message);
+        UiUtils.SnackbarText(message);
+    }
+}

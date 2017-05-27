@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                     xmlns:tools="http://schemas.android.com/tools"
+                                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                                     xmlns:ratingbar="http://schemas.android.com/apk/res-auto"
+                                     android:id="@+id/ll_intermediate_accepted"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="match_parent"
+                                     android:background="@color/colorBackground"
+                                     android:orientation="vertical">
+
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        style="@style/toolbar_style"
+        app:contentInsetStart="0dp">
+
+        <include layout="@layout/title_bar_layout" />
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/detail_swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="432px"
+                android:layout_marginTop="@dimen/top_spacing"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:paddingLeft="24px">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40px"
+                    android:layout_marginTop="40px"
+                    android:text="@string/score_item_goal"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/def_text_size_sp" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="542px"
+                        android:layout_height="326px"
+                        android:orientation="vertical">
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="46px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="38px"
+                                android:layout_height="36px"
+                                android:src="@mipmap/score_list_coordinate_normal" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16px"
+                                android:text="@string/score_item_list1" />
+
+                            <!--<RatingBar
+                                android:id="@+id/coordination_score"
+                                style="@style/scoreRatingBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="30px"
+                                android:numStars="5"
+                                android:rating="4"
+                                android:stepSize="0.1"
+                                android:isIndicator="true"/>-->
+                            <com.dgg.hdforeman.app.view.StarBar
+                                android:id="@+id/coordination_score"
+                                android:layout_below="@+id/display"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                ratingbar:starEmpty="@mipmap/list_star_normal"
+                                ratingbar:starFill="@mipmap/list_star_pressed"
+                                ratingbar:starDistance="5dp"
+                                ratingbar:starCount="5"
+                                ratingbar:starSize="46px"
+                                android:layout_marginLeft="30px"
+                                ratingbar:clickEnable="false"/>
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="46px"
+                            android:layout_marginTop="36px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="38px"
+                                android:layout_height="36px"
+                                android:src="@mipmap/score_list_service_normal" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16px"
+                                android:text="@string/score_item_list2" />
+
+                            <!--<RatingBar
+                                android:id="@+id/service_score"
+                                style="@style/scoreRatingBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="30px"
+                                android:numStars="5"
+                                android:rating="3"
+                                android:stepSize="0.1"
+                                android:isIndicator="true"/>-->
+                            <com.dgg.hdforeman.app.view.StarBar
+                                android:id="@+id/service_score"
+                                android:layout_below="@+id/display"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                ratingbar:starEmpty="@mipmap/list_star_normal"
+                                ratingbar:starFill="@mipmap/list_star_pressed"
+                                ratingbar:starDistance="5dp"
+                                ratingbar:starCount="5"
+                                ratingbar:starSize="46px"
+                                android:layout_marginLeft="30px"
+                                ratingbar:clickEnable="false"/>
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="46px"
+                            android:layout_marginTop="36px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="38px"
+                                android:layout_height="36px"
+                                android:src="@mipmap/score_list_project_controls_normal" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16px"
+                                android:text="@string/score_item_list3" />
+
+                            <!--<RatingBar
+                                android:id="@+id/date_score"
+                                style="@style/scoreRatingBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="30px"
+                                android:numStars="5"
+                                android:rating="2"
+                                android:stepSize="0.1"
+                                android:isIndicator="true"/>-->
+                            <com.dgg.hdforeman.app.view.StarBar
+                                android:id="@+id/date_score"
+                                android:layout_below="@+id/display"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                ratingbar:starEmpty="@mipmap/list_star_normal"
+                                ratingbar:starFill="@mipmap/list_star_pressed"
+                                ratingbar:starDistance="5dp"
+                                ratingbar:starCount="5"
+                                ratingbar:starSize="46px"
+                                android:layout_marginLeft="30px"
+                                ratingbar:clickEnable="false"/>
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="46px"
+                            android:layout_marginTop="36px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="38px"
+                                android:layout_height="36px"
+                                android:src="@mipmap/score_list_skills_normal" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16px"
+                                android:text="@string/score_item_list4" />
+
+                            <!--<RatingBar
+                                android:id="@+id/skill_score"
+                                style="@style/scoreRatingBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="30px"
+                                android:numStars="5"
+                                android:rating="1"
+                                app:layout_auto_basewidth="height"
+                                android:stepSize="0.1"
+                                android:isIndicator="true"/>-->
+                            <com.dgg.hdforeman.app.view.StarBar
+                                android:id="@+id/skill_score"
+                                android:layout_below="@+id/display"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                ratingbar:starEmpty="@mipmap/list_star_normal"
+                                ratingbar:starFill="@mipmap/list_star_pressed"
+                                ratingbar:starDistance="5dp"
+                                ratingbar:starCount="5"
+                                ratingbar:starSize="46px"
+                                android:layout_marginLeft="30px"
+                                ratingbar:clickEnable="false"/>
+
+                        </com.zhy.autolayout.AutoLinearLayout>
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <TextView
+                        android:id="@+id/score_item_score"
+                        android:layout_width="match_parent"
+                        android:layout_height="326px"
+                        android:gravity="center"
+                        tools:text="4.7"
+                        android:textColor="@color/colorOrange"
+                        android:textSize="40sp"
+                        android:textStyle="italic" />
+                </com.zhy.autolayout.AutoLinearLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/rl_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@color/textWhiteColor"
+                android:paddingTop="40px"
+                android:paddingBottom="40px"
+                android:orientation="vertical">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/ll_start_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="开工时间 : "
+                        android:textSize="@dimen/def_text_size_sp" />
+
+                    <TextView
+                        android:id="@+id/start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="2016-10-18"
+                        android:textColor="@color/textDarkColor"
+                        android:textSize="@dimen/def_text_size_sp" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll_start_time"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="40px"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="竣工时间 : "
+                        android:textSize="@dimen/def_text_size_sp" />
+
+                    <TextView
+                        android:id="@+id/end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="2016-10-18"
+                        android:textColor="@color/textDarkColor"
+                        android:textSize="@dimen/def_text_size_sp" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="26px"
+                    android:src="@mipmap/jump"
+                    android:visibility="visible"/>
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@color/textWhiteColor"
+                android:orientation="vertical">
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:id="@+id/project_list_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/px_40"
+                    android:paddingBottom="@dimen/px_40"
+                    android:background="@drawable/common_layout_press_selector">
+
+                    <TextView
+                        android:id="@+id/tv_project_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="26px"
+                        android:text="项目清单"
+                        android:textColor="@color/textLightDarkColor" />
+
+                    <TextView
+                        android:id="@+id/tv_project_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_project_list"
+                        android:paddingLeft="26px"
+                        android:text="工程造价: "
+                        android:layout_marginTop="20px"
+                        android:textColor="@color/textDarkColor" />
+
+                    <TextView
+                        android:id="@+id/engineering_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/tv_project_total"
+                        android:layout_toRightOf="@id/tv_project_total"
+                        tools:text="￥ 2732505"
+                        android:textColor="@color/textRedColor" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="26px"
+                        android:src="@mipmap/jump" />
+
+
+                </com.zhy.autolayout.AutoRelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorDivide" />
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/project_alive_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                 android:paddingTop="@dimen/px_40"
+                    android:paddingBottom="@dimen/px_40"
+                    android:background="@drawable/common_layout_press_selector"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_alive"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26px"
+                        android:text="工地直播" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="26px"
+                        android:src="@mipmap/jump" />
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorDivide" />
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:id="@+id/DcMessageLayout"
+                    style="@style/TextLayoutStyle">
+
+                    <TextView
+                        android:id="@+id/tv_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="施工消息"
+                        android:textSize="@dimen/px_28" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/list_jump" />
+
+                </com.zhy.autolayout.AutoRelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorDivide" />
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/materials_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/px_40"
+                    android:paddingTop="@dimen/px_40"
+                    android:background="@drawable/common_layout_press_selector"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_materials"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="26px"
+                        android:text="施工材料" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="26px"
+                        android:src="@mipmap/jump" />
+
+
+                </com.zhy.autolayout.AutoLinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorDivide" />
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/sketch_map_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/px_40"
+                    android:paddingTop="@dimen/px_40"
+                    android:background="@drawable/common_layout_press_selector"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="26px"
+                        android:text="装修示意图" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="26px"
+                        android:src="@mipmap/jump" />
+
+
+                </com.zhy.autolayout.AutoLinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorDivide" />
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:id="@+id/team_lay"
+                    style="@style/TextLayoutStyle"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/tv_team"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="施工团队"
+                        android:textSize="@dimen/px_28"/>
+
+                    <ImageView
+                        android:id="@+id/iv_team"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/jump"/>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:id="@+id/imgLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_team"
+                        android:layout_marginRight="20px"
+                        android:layout_marginTop="30px"
+                        android:layout_toLeftOf="@id/iv_team"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                </com.zhy.autolayout.AutoRelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorDivide" />
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/acceptance_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/px_40"
+                    android:paddingTop="@dimen/px_40"
+                    android:background="@drawable/common_layout_press_selector"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="26px"
+                        android:text="工程验收" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="26px"
+                        android:src="@mipmap/jump" />
+
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</com.zhy.autolayout.AutoLinearLayout>

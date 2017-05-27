@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        style="@style/toolbar_style"
+        app:contentInsetStart="0dp">
+        <include
+            layout="@layout/title_bar_layout"
+            />
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16px"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/left_right_spacing">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/bank_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/bank"
+                android:visibility="gone"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15px"
+            android:background="#ffffff"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/bank_name"
+                style="@style/tv_dark_style"
+                android:layout_width="match_parent"
+                android:ellipsize="end"
+                android:lines="1"
+                tools:text="中国建设银行"
+                android:textSize="30px"
+                android:visibility="visible" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5px"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/tv_dark_style"
+                        android:layout_marginRight="10px"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:text="银行卡:"
+                        android:textColor="@color/textLightDarkColor" />
+
+                    <TextView
+                        android:id="@+id/bank_num"
+                        style="@style/tv_dark_style"
+                        android:layout_width="match_parent"
+                        android:ellipsize="end"
+                        android:inputType="number"
+                        android:lines="1"
+                        tools:text="21121212121212121121212121"
+                        android:textColor="@color/textLightDarkColor" />
+                </com.zhy.autolayout.AutoLinearLayout>
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16px"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="@dimen/left_right_spacing">
+
+        <TextView
+            style="@style/tv_dark_style"
+            android:layout_width="match_parent"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="提现金额"
+            android:layout_marginTop="10px"
+            android:textColor="@color/textLightDarkColor" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/project_item"
+                style="@style/tv_dark_style"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10px"
+                android:text="¥"
+                android:textSize="56px" />
+
+
+            <EditText
+                android:id="@+id/cash"
+                style="@style/tv_dark_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/edit_bg_line"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/colorLightRed"
+                android:textSize="40px"
+                android:hint="@string/income_money_hint"
+                android:maxLength="12"
+                android:inputType="numberDecimal"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="20px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/cash_tv"
+                style="@style/tv_dark_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10px"
+                android:text="可提现:"
+                android:textColor="@color/textLightDarkColor"
+                android:textSize="25px" />
+
+
+            <TextView
+                android:id="@+id/can_use"
+                style="@style/tv_dark_style"
+                tools:text="¥2114"
+                android:textSize="28px"
+                android:textColor="@color/colorLightRed" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            style="@style/tv_dark_style"
+            android:layout_marginTop="10px"
+            android:text="提现款会尽快为您处理，请随时留意银行信息"
+            android:textColor="@color/textLightDarkColor"
+            android:textSize="25px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:id="@+id/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/long_btn_height"
+        android:layout_marginTop="40dp"
+        android:background="@color/textGreyColor"
+        android:gravity="center"
+        android:text="确定提现"
+        android:textColor="@drawable/btn_text_selector"
+        />
+</com.zhy.autolayout.AutoLinearLayout>
+

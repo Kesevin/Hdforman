@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PICKERVIEW/PICKERVIEW.iml" filepath="$PROJECT_DIR$/PICKERVIEW/PICKERVIEW.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhotoPickerMoudle/PhotoPickerMoudle.iml" filepath="$PROJECT_DIR$/PhotoPickerMoudle/PhotoPickerMoudle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/arms/arms.iml" filepath="$PROJECT_DIR$/arms/arms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hdforeman.iml" filepath="$PROJECT_DIR$/hdforeman.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projectComponent/projectComponent.iml" filepath="$PROJECT_DIR$/projectComponent/projectComponent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxerrorhandler/rxerrorhandler.iml" filepath="$PROJECT_DIR$/rxerrorhandler/rxerrorhandler.iml" />
+    </modules>
+  </component>
+</project>

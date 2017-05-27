@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.dgg.hdforeman">
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+
+    <application
+        android:name=".app.HDApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/log"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        tools:replace="android:icon"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="design_width"
+            android:value="750"/>
+        <meta-data
+            android:name="design_height"
+            android:value="1334"/>
+        <!-- glide配置 -->
+        <meta-data
+            android:name="com.jess.arms.widget.imageloader.glide.GlideConfiguration"
+            android:value="GlideModule"/>
+
+        <activity
+            android:name=".mvp.ui.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask">
+        </activity>
+        <activity
+            android:name=".mvp.ui.TestActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".mvp.ui.login.SplashActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="HDForeman"
+                    android:host="dgg.hdforeman"
+                    android:pathPrefix="/openApp">
+                </data>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".mvp.ui.MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".mvp.ui.mine.activity.TeamActivity"
+            android:label="团队管理"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.mine.activity.DataActivity"
+            android:label="我的资料"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.mine.activity.MessageActivity"
+            android:label="我的资料"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.mine.activity.TeamAddActivity"
+            android:label="成员添加"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.mine.activity.TeamAddSearchActivity"
+            android:label="成员添加搜索"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.mine.activity.ScoreActivity"
+            android:label="我的评分"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.mine.activity.SetActivity"
+            android:label="账号设置"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.mine.activity.AboutActivity"
+            android:label="关于小顶"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.mine.activity.ModifyPasswordActivity"
+            android:label="修改密码"
+            android:screenOrientation="portrait"/>
+
+        <!-- 项目 -->
+        <activity
+            android:name=".mvp.ui.project.activity.ProjectWaitToStartDetailActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/str_project_start"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.ProjectInformationActivity"
+            android:label="@string/project_detail"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.ProjectCompletedDetailActivity"
+            android:label="已完工项目详情"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.AddMembersActivity"
+            android:label="添加成员"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.NotSignInfoActivity"
+            android:label="@string/project_detail"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.ProjectQuoteActivity"
+            android:label="@string/project_quote"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.QuoteListActivity"
+            android:launchMode="singleTop"
+            android:label="@string/quote_list"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".mvp.ui.project.activity.ProjectInfoActivity"
+            android:label="@string/str_project_info"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.ProjectListActivity"
+            android:label="@string/project_manifest"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.ProjectShutActivity"
+            android:label="@string/lockout_apply"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.ConstructMaterialActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/execute_material"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.FieldLiveActivity"
+            android:label="@string/field_live"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.ConstructTeamActivity"
+            android:label="@string/execute_team"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.ProjectAcceptActivity"
+            android:label="@string/project_acceptance"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.IntermediateAcceptActivity"
+            android:label="@string/section_acceptance"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.ConstructProgressActivity"
+            android:label="@string/execute_progress"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.FitmentPictureActivity"
+            android:label="装修示意图"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.income.activity.IncomeDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="收入明细"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.income.activity.MoneyArrivedDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="已到款明细"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.income.activity.WaitForPaymentActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="待到款"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.income.activity.WithdrawsCashActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="提现"
+            android:screenOrientation="portrait"/>
+        <!-- 工具 -->
+        <activity
+            android:name=".mvp.ui.tool.activity.AnnouncementActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="公告"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.tool.activity.AnnouncementDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="公告详情"
+            android:screenOrientation="portrait"/>
+        <!-- 工地测量 -->
+        <activity
+            android:name=".mvp.ui.project.activity.ProjectMessureActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="工地测量"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.ProjectMessureResultActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            android:label="测量结果"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.ui.project.activity.BudgetSheetActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="预算单"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <!-- Required SDK 核心功能 -->
+        <!-- option since 2.0.5 可配置PushService，DaemonService,PushReceiver,AlarmReceiver的android:process参数 将JPush相关组件设置为一个独立进程 -->
+        <!-- 如：android:process=":remote" -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER"/>
+                <action android:name="cn.jpush.android.intent.REPORT"/>
+                <action android:name="cn.jpush.android.intent.PushService"/>
+                <action android:name="cn.jpush.android.intent.PUSH_TIME"/>
+            </intent-filter>
+        </service>
+
+        <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
+        <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
+        <service
+            android:name="cn.jpush.android.service.DaemonService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService"/>
+
+                <category android:name="com.dgg.hdforeman"/>
+            </intent-filter>
+        </service>
+
+        <!-- Required -->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+
+                <category android:name="com.dgg.hdforeman"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <!-- Required SDK核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.dgg.hdforeman"/>
+            </intent-filter>
+        </activity>
+        <!-- Required SDK核心功能 -->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false">
+        </service>
+        <!-- Required SDK核心功能 -->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver"/>
+
+        <!-- User defined. 用户自定义的广播接收器 -->
+        <receiver
+            android:name=".app.receiver.JPushReceiver"
+            android:enabled="true">
+            <intent-filter>
+
+                <!-- Required 用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <!-- Required 用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <!-- Required 用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <!-- Required 用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.CONNECTION"/>
+
+                <category android:name="com.dgg.hdforeman"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".mvp.ui.project.activity.HDPhotoPreviewActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".mvp.ui.project.activity.FreeTemActivity"
+                  android:label="自由项"
+                  android:windowSoftInputMode="adjustPan|adjustResize"
+                  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".mvp.ui.project.activity.AddFreeTermActivity"
+                  android:label="增加自由项"
+                  android:windowSoftInputMode="adjustPan|adjustResize"
+                  android:screenOrientation="portrait">
+        </activity>
+
+        <service android:name=".mvp.ui.TestService"></service>
+        <activity android:name=".mvp.ui.ServiceTestActivity"
+            android:screenOrientation="portrait">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".mvp.ui.ServiceTestActivity2"
+            android:screenOrientation="portrait"></activity>
+    </application>
+
+</manifest>

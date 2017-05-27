@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       android:background="@color/white"
+    >
+
+    <TextView
+        android:id="@+id/tv_spacename"
+        android:layout_width="wrap_content"
+        android:layout_height="72px"
+        android:layout_marginLeft="@dimen/px_24"
+        android:layout_marginTop="@dimen/px_48"
+        android:gravity="center"
+        android:text="空间名"
+        android:textColor="#666666"
+        android:textSize="@dimen/px_28"/>
+
+    <TextView
+        android:id="@+id/tv_calculate"
+        android:layout_width="158px"
+        android:layout_height="72px"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/px_24"
+        android:layout_marginTop="@dimen/px_48"
+        android:background="@drawable/shape_sorange_bwhite"
+        android:gravity="center"
+        android:text="计算/添加"
+        android:textColor="#F4723E"
+        android:textSize="28px"/>
+
+    <TextView
+        android:id="@+id/tv_clear"
+        android:layout_width="158px"
+        android:layout_height="72px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="@dimen/px_48"
+        android:layout_toLeftOf="@+id/tv_calculate"
+        android:background="@drawable/shape_sorange_bwhite"
+        android:gravity="center"
+        android:text="清除"
+        android:textColor="#F4723E"
+        android:textSize="28px"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="68px"
+        android:layout_below="@+id/tv_spacename"
+        android:layout_marginTop="24px"
+        android:layout_toLeftOf="@+id/et_width"
+        android:layout_toRightOf="@+id/et_length"
+        android:gravity="center"
+        android:text="x"
+        android:id="@+id/textView4"/>
+
+    <EditText
+        android:id="@+id/et_width"
+        android:layout_width="312px"
+        android:layout_height="68px"
+        android:inputType="numberDecimal"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tv_spacename"
+        android:layout_marginRight="@dimen/px_24"
+        android:layout_marginTop="24px"
+        android:background="@drawable/shape_bgrey"
+        android:gravity="center"
+        android:hint="宽"
+        android:textColorHint="@color/hintcolor"
+        android:textSize="@dimen/px_28"/>
+
+    <LinearLayout
+        android:id="@+id/linear_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/et_length"
+        android:layout_marginLeft="@dimen/px_24"
+        android:layout_marginRight="@dimen/px_24"
+        android:layout_marginTop="@dimen/px_24"
+        android:gravity="center"
+        android:hint="周边"
+        android:textColorHint="@color/hintcolor"
+        android:textSize="@dimen/px_28"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/linear_item"
+        android:layout_marginTop="@dimen/px_24"
+        android:background="@color/hintcolor"></View>
+
+    <TextView
+        android:id="@+id/tv_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/divider"
+        android:layout_marginBottom="@dimen/px_24"
+        android:layout_marginRight="@dimen/px_24"
+        android:layout_marginTop="@dimen/px_24"
+        android:text="@string/stringare"/>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView"
+        android:layout_below="@+id/divider"
+        android:layout_marginLeft="@dimen/px_24"
+        android:layout_marginTop="@dimen/px_24"
+        android:layout_marginBottom="@dimen/px_24"
+        android:text="套内面积"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_20"
+        android:layout_below="@+id/tv_area"
+        android:background="@color/backgroundGray"></View>
+
+    <EditText
+        android:id="@+id/et_length"
+        android:layout_width="312px"
+        android:layout_height="68px"
+        android:inputType="numberDecimal"
+        android:background="@drawable/shape_bgrey"
+        android:gravity="center"
+        android:hint="长"
+        android:textColorHint="@color/hintcolor"
+        android:textSize="@dimen/px_28"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_alignLeft="@+id/tv_spacename"
+        android:layout_alignStart="@+id/tv_spacename"/>
+
+</com.zhy.autolayout.AutoRelativeLayout>

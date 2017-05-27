@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bgGreyColor">
+
+    <TextView
+        android:id="@+id/QuantitiesEditTextName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="平顶施工面积："
+        android:layout_centerVertical="true"
+        android:textColor="@color/textDarkColor"/>
+    <EditText
+        android:id="@+id/QuantitiesEditText"
+        android:layout_width="350px"
+        android:layout_height="wrap_content"
+        android:drawablePadding="20px"
+        android:hint="请输入工程量"
+        android:minHeight="102px"
+        android:paddingLeft="@dimen/px_30"
+        android:paddingRight="@dimen/px_30"
+        android:text=""
+        android:inputType="numberDecimal"
+        android:textColor="@color/textDarkColor"
+        android:textColorHint="@color/textGreyColor"
+        android:textSize="@dimen/px_28"
+        android:layout_alignParentRight="true"
+        android:gravity="right|center_vertical"
+        android:background="@null"
+        android:textCursorDrawable="@null"/>
+
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                                     android:background="@color/textWhiteColor"
+                                     android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/colorDivide" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/px_40"
+        android:paddingBottom="@dimen/px_40"
+        android:paddingLeft="@dimen/px_26"
+        android:paddingRight="@dimen/px_26">
+
+        <ImageView
+            android:id="@+id/material_image"
+            android:layout_width="240px"
+            android:layout_height="240px"
+            android:src="@mipmap/default_project_icon"
+            android:scaleType="centerCrop"
+            app:layout_auto_basewidth="height"/>
+<com.zhy.autolayout.AutoLinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_toRightOf="@+id/material_image"
+    android:padding="5px"
+    android:layout_marginLeft="35px"
+    >
+
+        <TextView
+            android:id="@+id/material_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxEms="11"
+            android:ellipsize="end"
+            android:text="都芳第二代五合一墙面漆 （原装进口）"
+            android:textColor="@color/textDarkColor"
+            android:gravity="center_vertical"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/material_capacity"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="规格：5L"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/material_number"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingBottom="5px"
+            android:text="数量：4/桶"
+            android:textSize="28px" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+        <TextView
+            android:id="@+id/btn_delivery_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorOrange"
+            android:text="联系送货"
+            android:textColor="@drawable/btn_text_selector"
+            android:paddingLeft="25px"
+            android:paddingTop="15px"
+            android:paddingBottom="15px"
+            android:paddingRight="25px"
+            android:textSize="28px"
+            app:layout_auto_baseheight="width"/>
+</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

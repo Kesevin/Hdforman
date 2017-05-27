@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorDivide"
+    android:orientation="vertical">
+
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:background="@color/colorOrange"
+        app:contentInsetStart="0dp">
+
+        <ImageView
+            android:id="@+id/toolbar_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/nav_return" />
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/str_quotation"
+            android:textColor="@color/textWhiteColor"
+            android:textSize="18sp" />
+
+
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@color/textWhiteColor">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="44px"
+                    android:text="基础包"
+                    android:textColor="@color/textLightDarkColor"
+                    android:textSize="@dimen/def_text_size_sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="7px"
+                    android:layout_marginTop="44px"
+                    android:layout_toLeftOf="@+id/tv_basic_total"
+                    android:text="合计:"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/def_text_size_sp" />
+
+                <TextView
+                    android:id="@+id/tv_basic_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="26px"
+                    android:layout_marginTop="44px"
+                    android:text="￥25471.00"
+                    android:textColor="@color/textRedColor"
+                    android:textSize="@dimen/def_text_size_sp" />
+
+                <TextView
+                    android:id="@+id/tv_riding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_basic_total"
+                    android:layout_marginBottom="36px"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginRight="26px"
+                    android:layout_marginTop="46px"
+                    android:text="96.65m²x399元/m²=￥25471.00"
+                    android:textColor="@color/textDarkColor" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@color/textWhiteColor"
+                android:orientation="vertical">
+
+                <include layout="@layout/layout_upgrade_bill" />
+
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40px">
+
+                    <TextView
+                        android:id="@+id/tv_upgrade_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="26px"
+                        android:layout_marginTop="44px"
+                        android:text="￥25471.00"
+                        android:textColor="@color/textRedColor"
+                        android:textSize="@dimen/def_text_size_sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="7px"
+                        android:layout_marginTop="44px"
+                        android:layout_toLeftOf="@+id/tv_upgrade_total"
+                        android:text="合计:"
+                        android:textColor="@color/textDarkColor"
+                        android:textSize="@dimen/def_text_size_sp" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <include
+                layout="@layout/layout_predict_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@color/textWhiteColor"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="44px"
+                    android:text="小区周末能否施工（单选）"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/def_text_size_sp" />
+
+                <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40px"
+                    android:layout_marginTop="40px"
+                    android:orientation="horizontal">
+
+                    <com.dgg.hdforeman.mvp.ui.widget.LabelRadioButton
+                        android:id="@+id/rb_not_can"
+                        android:layout_width="0dp"
+                        android:layout_height="82px"
+                        android:layout_marginLeft="26px"
+                        android:layout_marginRight="20px"
+                        android:layout_weight="1"
+                        android:background="@drawable/orange_grey_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:textColor="@drawable/text_orange_grey_selector"
+                        android:text="不能" />
+
+                    <com.dgg.hdforeman.mvp.ui.widget.LabelRadioButton
+                        android:id="@+id/rb_can"
+                        android:layout_width="0dp"
+                        android:layout_height="82px"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginRight="26px"
+                        android:layout_weight="1"
+                        android:background="@drawable/orange_grey_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:textColor="@drawable/text_orange_grey_selector"
+                        android:gravity="center"
+                        android:text="能" />
+                </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@color/textWhiteColor"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="44px"
+                    android:text="大地砖和木地板（单选）"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/def_text_size_sp" />
+
+                <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40px"
+                    android:orientation="horizontal">
+
+                    <com.dgg.hdforeman.mvp.ui.widget.LabelRadioButton
+                        android:id="@+id/rb_first"
+                        android:layout_width="0dp"
+                        android:layout_height="82px"
+                        android:layout_marginLeft="26px"
+                        android:layout_marginRight="20px"
+                        android:layout_weight="1"
+                        android:background="@drawable/orange_grey_selector"
+                        android:button="@null"
+                        android:textColor="@drawable/text_orange_grey_selector"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="全屋强化地板" />
+
+                    <com.dgg.hdforeman.mvp.ui.widget.LabelRadioButton
+                        android:id="@+id/rb_second"
+                        android:layout_width="0dp"
+                        android:layout_height="82px"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginRight="26px"
+                        android:layout_weight="1"
+                        android:background="@drawable/orange_grey_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:textColor="@drawable/text_orange_grey_selector"
+                        android:text="全屋大地砖" />
+
+                </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup>
+
+                <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40px"
+                    android:orientation="vertical">
+
+                    <com.dgg.hdforeman.mvp.ui.widget.LabelRadioButton
+                        android:id="@+id/rb_third"
+                        android:layout_width="match_parent"
+                        android:layout_height="82px"
+                        android:layout_marginLeft="26px"
+                        android:layout_marginRight="26px"
+                        android:layout_marginTop="38px"
+                        android:textColor="@drawable/text_orange_grey_selector"
+                        android:background="@drawable/orange_grey_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="客餐厅大地砖，卧室强化地板" />
+
+                    <com.dgg.hdforeman.mvp.ui.widget.LabelRadioButton
+                        android:id="@+id/rb_fourth"
+                        android:layout_width="match_parent"
+                        android:layout_height="82px"
+                        android:layout_marginLeft="26px"
+                        android:layout_marginRight="26px"
+                        android:layout_marginTop="38px"
+                        android:textColor="@drawable/text_orange_grey_selector"
+                        android:background="@drawable/orange_grey_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="客餐厅大地砖，卧室实木地板" />
+                </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@color/textWhiteColor"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="44px"
+                    android:text="空调系统（单选或不选）"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/def_text_size_sp" />
+
+                <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40px"
+                    android:layout_marginTop="40px"
+                    android:orientation="horizontal">
+
+                    <com.dgg.hdforeman.mvp.ui.widget.LabelRadioButton
+                        android:id="@+id/rb_center_air"
+                        android:layout_width="0dp"
+                        android:layout_height="82px"
+                        android:layout_marginLeft="26px"
+                        android:layout_marginRight="20px"
+                        android:layout_weight="1"
+                        android:background="@drawable/orange_grey_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:textColor="@drawable/text_orange_grey_selector"
+                        android:gravity="center"
+                        android:text="中央空调" />
+
+                    <com.dgg.hdforeman.mvp.ui.widget.LabelRadioButton
+                        android:id="@+id/rb_wind_machine"
+                        android:layout_width="0dp"
+                        android:layout_height="82px"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginRight="26px"
+                        android:layout_weight="1"
+                        android:background="@drawable/orange_grey_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:textColor="@drawable/text_orange_grey_selector"
+                        android:text="风管机" />
+                </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@color/textWhiteColor"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="44px"
+                    android:text="大地砖和木地板（单选）"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/def_text_size_sp" />
+
+                <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40px"
+                    android:layout_marginTop="40px"
+                    android:orientation="horizontal">
+
+                    <com.dgg.hdforeman.mvp.ui.widget.LabelRadioButton
+                        android:id="@+id/rb_balcony"
+                        android:layout_width="334px"
+                        android:layout_height="82px"
+                        android:layout_marginLeft="26px"
+                        android:layout_marginRight="20px"
+                        android:background="@drawable/orange_grey_selector"
+                        android:button="@null"
+                        android:textColor="@drawable/text_orange_grey_selector"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="封阳台" />
+
+                    <com.dgg.hdforeman.mvp.ui.widget.LabelRadioButton
+                        android:id="@+id/rb_titanium_door"
+                        android:layout_width="334px"
+                        android:layout_height="82px"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginRight="26px"
+                        android:background="@drawable/orange_grey_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:textColor="@drawable/text_orange_grey_selector"
+                        android:gravity="center"
+                        android:text="钛合金门" />
+
+
+                </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup>
+
+                <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="40px">
+
+                    <com.dgg.hdforeman.mvp.ui.widget.LabelRadioButton
+                        android:id="@+id/rb_shop_window_stone"
+                        android:layout_width="334px"
+                        android:layout_height="82px"
+                        android:layout_marginLeft="26px"
+                        android:layout_marginRight="20px"
+                        android:textColor="@drawable/text_orange_grey_selector"
+                        android:background="@drawable/orange_grey_selector"
+                        android:button="@null"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="窗台铺石材" />
+
+                    <com.dgg.hdforeman.mvp.ui.widget.LabelRadioButton
+                        android:id="@+id/rb_wallpaper"
+                        android:layout_width="334px"
+                        android:layout_height="82px"
+                        android:layout_marginLeft="26px"
+                        android:layout_marginRight="26px"
+                        android:background="@drawable/orange_grey_selector"
+                        android:button="@null"
+                        android:textColor="@drawable/text_orange_grey_selector"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:text="贴墙纸" />
+                </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@color/textWhiteColor"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="44px"
+                    android:text="备注"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/def_text_size_sp" />
+
+                <EditText
+                    android:id="@+id/et_remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginRight="26px"
+                    android:layout_marginTop="30px"
+                    android:background="@drawable/et_stroke_shape"
+                    android:gravity="start"
+                    android:minHeight="206px"
+                    android:textCursorDrawable="@drawable/edit_grey_curor_shape" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <Button
+                android:id="@+id/btn_create_budget_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_gravity="bottom"
+                android:background="@color/colorOrange"
+                android:gravity="center"
+                android:text="生成预算清单"
+                android:textColor="@color/textWhiteColor"
+                android:textSize="@dimen/def_text_size_sp" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+</com.zhy.autolayout.AutoLinearLayout>

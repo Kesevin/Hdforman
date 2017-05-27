@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        style="@style/toolbar_style"
+        app:contentInsetStart="0dp">
+        <include layout="@layout/title_bar_layout" />
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        style="@style/MyTabLayoutTextAppearance"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one_hundred"
+        android:background="@color/white"
+        app:tabIndicatorColor="@color/colorOrange"
+        app:tabIndicatorHeight="2px"
+        app:tabSelectedTextColor="@color/colorOrange"
+        app:tabTextColor="@color/textDarkColor"></android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_project"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+
+</com.zhy.autolayout.AutoLinearLayout>

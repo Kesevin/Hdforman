@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20px"
+    android:background="@color/textWhiteColor"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26px"
+        android:layout_marginTop="44px"
+        android:text="客餐厅1"
+        android:textColor="@color/textLightDarkColor"
+        android:textSize="@dimen/def_text_size_sp" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18px">
+
+        <TextView
+            android:id="@+id/tv_inside_space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26px"
+            android:layout_marginTop="18px"
+            android:text="套内面积"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/def_text_size_sp" />
+
+        <EditText
+            android:id="@+id/et_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="26px"
+            android:singleLine="true"
+            android:text="6m²"
+            android:textSize="@dimen/def_text_size_sp" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_perimeter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26px"
+            android:layout_marginTop="18px"
+            android:text="周长"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/def_text_size_sp" />
+
+        <EditText
+            android:id="@+id/et_perimeter_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="18px"
+            android:layout_marginRight="26px"
+            android:singleLine="true"
+            android:text="6m²"
+            android:textSize="@dimen/def_text_size_sp" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoLinearLayout>

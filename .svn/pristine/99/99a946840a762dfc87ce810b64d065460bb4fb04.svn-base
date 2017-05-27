@@ -1,0 +1,288 @@
+package com.dgg.hdforeman.mvp.ui.project.fragment;
+
+
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout;
+
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.dgg.hdforeman.R;
+import com.dgg.hdforeman.app.HDApplication;
+import com.dgg.hdforeman.app.utils.ToastUtils;
+import com.dgg.hdforeman.di.commponent.AppComponent;
+import com.dgg.hdforeman.di.commponent.DaggerDuringConstructComponent;
+import com.dgg.hdforeman.di.module.DuringConstructModule;
+import com.dgg.hdforeman.mvp.contract.project.DuringConstructContract;
+import com.dgg.hdforeman.mvp.contract.project.ProjectContract;
+import com.dgg.hdforeman.mvp.model.been.ProjectResponse;
+import com.dgg.hdforeman.mvp.presenter.project.DuringConstructPresenter;
+import com.dgg.hdforeman.mvp.ui.base.HDFragment;
+import com.jess.arms.utils.PermissionUtil;
+import com.jess.arms.utils.Preconditions;
+import com.tbruyelle.rxpermissions.RxPermissions;
+
+import org.simple.eventbus.Subscriber;
+import org.simple.eventbus.ThreadMode;
+
+import butterknife.BindView;
+
+import static com.dgg.hdforeman.app.config.Constants.REFRESH_FRAGMENT;
+
+/**
+ * Created by kelvin on 2016/11/2.
+ */
+
+public class DuringConstructFragment extends HDFragment<DuringConstructPresenter> implements DuringConstructContract.View ,BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener{
+
+    @BindView(R.id.rv_during_construct)
+    RecyclerView mRecyclerView;
+    @BindView(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView(R.id.noData)
+    LinearLayout noData;
+
+    private ProjectContract.TabTypeItem mTabTypeItem;
+    private String protype="";
+
+    public static final String TAB_METHOD = "method";
+    public static final String ITEM_DATA = "item_data";
+
+    public static final int FILL_LIST_ITEM = 0;
+
+    private boolean isFrist;
+    private boolean isCreate;
+
+    public static DuringConstructFragment newInstance(ProjectContract.TabTypeItem typeItem, String protype) {
+        DuringConstructFragment fragment = new DuringConstructFragment();
+        fragment.mTabTypeItem = typeItem;
+        fragment.protype = protype;
+        return fragment;
+    }
+
+    @Override
+    protected void setupFragmentComponent(AppComponent appComponent) {
+        DaggerDuringConstructComponent
+                .builder()
+                .appComponent(appComponent)
+                .duringConstructModule(new DuringConstructModule(this))
+                .build()
+                .inject(this);
+    }
+
+    @Override
+    protected View initView() {
+        return LayoutInflater.from(getActivity()).inflate(R.layout.during_construct_fragment, null, false);
+    }
+
+    /**
+     * 请求施工中数据列表
+     */
+    @Override
+    protected void initData() {
+        initRecyclerView();
+        mPresenter.initAdapter(this);
+        if (isCreate) {
+            fillListItem();
+            isFrist = true;
+        }
+
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.requestList(true);
+    }
+
+    /**
+     * 初始化RecyclerView
+     */
+    private void initRecyclerView() {
+
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
+            @Override
+            public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
+               mPresenter.jumpItem((ProjectResponse) adapter.getItem(position));
+            }
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                super.onItemChildClick(adapter, view, position);
+                switch (view.getId()) {
+                    case R.id.pro_during_btn:
+                        ProjectResponse  pro  =  (ProjectResponse) adapter.getItem(position);
+                        doFreeitemsUtil(pro);
+                        break;
+                    case R.id.mDcCallPhone:
+                        ProjectResponse  pro2  =  (ProjectResponse) adapter.getItem(position);
+                        callPhone(pro2.getPm_cuscontactno());
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+
+        });
+
+
+    }
+
+
+    /**
+     * 给Recycler设置adapter
+     *
+     * @param adapter
+     */
+    @Override
+    public void setAdapter(BaseQuickAdapter adapter) {
+        mRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void setData(Object data) {
+        if (data instanceof Bundle) {//接受到上层fragment的请求根据方法唯一码分配对应的方法
+            Bundle bundle = (Bundle) data;
+            int method = bundle.getInt(TAB_METHOD);
+            switch (method) {
+                case FILL_LIST_ITEM://填充列表数据
+                    fillListItem();
+                    break;
+            }
+        }
+    }
+
+    @Override
+    public void setData() {
+        this.isCreate = true;
+    }
+
+    /**
+     * 填充列表数据
+     */
+    private void fillListItem() {
+        if (!isFrist) {//第一次才刷新，并且只刷新一次
+            mPresenter.requestList(true);
+            this.isFrist = true;
+        }
+    }
+
+
+    @Subscriber(tag = REFRESH_FRAGMENT, mode = ThreadMode.MAIN)
+    public void updateTab(boolean b) {
+        mPresenter.requestList(true);
+    }
+
+    @Override
+    public void startLoadMore() {
+
+    }
+
+    @Override
+    public void endLoadMore() {
+
+    }
+
+
+    @Override
+    protected boolean useEventBus() {
+        return true;
+    }
+
+    /**
+     * 给业主打电话
+     *
+     * @param phone
+     */
+    @Override
+    public void callPhone(final String phone) {
+        Preconditions.checkNotNull(phone);
+        PermissionUtil.callPhone(new PermissionUtil.RequestPermission() {
+                                     @Override
+                                     public void onRequestPermissionSuccess() {
+                                         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                             return;
+                                         }
+                                         startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"
+                                                 + phone)));
+                                     }
+                                 }, RxPermissions.getInstance(getActivity().getApplication()), this
+                , ((HDApplication) getActivity().getApplication()).getAppComponent().rxErrorHandler());
+    }
+
+    @Override
+    public ProjectContract.TabTypeItem getTabItem() {
+        return mTabTypeItem;
+    }
+
+    @Override
+    public String getProtype() {
+        return protype;
+    }
+
+    @Override
+    public void showLoading() {
+    }
+
+    @Override
+    public void hideLoading() {
+        mSwipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void showMessage(@NonNull String message) {
+        ToastUtils.showToast(message);
+    }
+
+    @Override
+    public void launchActivity(Intent intent) {
+
+    }
+
+    @Override
+    public void killMyself() {
+
+    }
+
+
+    @Override
+    public void doFreeitemsUtil(ProjectResponse projectResponse) {
+        mPresenter.doFreeitems(projectResponse);
+    }
+
+    @Override
+    public void showNoData() {
+        noData.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hintNodata() {
+        noData.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onRefresh() {
+        mPresenter.requestList(true);
+    }
+
+    @Override
+    public void onLoadMoreRequested() {
+
+        mPresenter.requestList(false);
+    }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_no_free_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="尚未选择自由项，请点击增加进行选择"
+        android:textColor="@color/textLightDarkColor"
+        android:textSize="@dimen/def_text_size_sp" />
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">工长端</string>
+
+    <string name="network_exception">网络异常</string>
+    <string name="base_url">http://172.16.1.230:8088/</string>
+    <!--我的-->
+    <string name="mine_list_data">我的资料</string>
+    <string name="mine_list_message">我的消息</string>
+    <string name="mine_list_team">团队管理</string>
+    <string name="mine_list_contract">合同协议</string>
+    <string name="mine_list_insurance">保险管理</string>
+    <string name="mine_list_score">我的评分</string>
+    <string name="mine_list_set">账号设置</string>
+    <!--我的资料-->
+    <string name="data_workType">工种</string>
+    <string name="data_fitment">装修经验</string>
+    <string name="data_address">常住地址</string>
+    <string name="data_cardNumber">身份证号</string>
+    <string name="data_phoneNumber">绑定手机</string>
+    <string name="data_bankNumber">银行卡号</string>
+    <!--成员添加-->
+    <string name="team_add_search_hint">请输入添加成员的手机号</string>
+    <string name="team_add_noData">没有查找到相关用户</string>
+    <!--我的评分-->
+    <string name="score_item_goal">工程得分</string>
+    <string name="score_item_list1">协调能力</string>
+    <string name="score_item_list2">服务态度</string>
+    <string name="score_item_list3">工期管控</string>
+    <string name="score_item_list4">专业技能</string>
+    <!--关于小顶-->
+    <string name="about_title">关于小顶网</string>
+    <string name="about_content">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;北京顶呱呱企业管理有限公司旗下小顶网，2016年正式上线运营，致力于成为大型、便捷的线上企业服务平台，为用户提供超乎想象的一站式企业服务体验，让用户的企业发展更快捷、更畅通、更可实时掌控。\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;目前，在线企业服务涵盖14个业态，近600种服务项目，包括工商综合、知识产权、会计代理、资质代办及证书挂靠、装饰服务、商业地产、400电话功能、互联网营销、品牌设计、金融发展、财税咨询、大卓创业商学院等。\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;依托每年千亿规模的企业服务能力、积淀多年的品牌影响力、领先的核心驱动技术优势以及国内知名的一站式企业服务体系，迅速跻身中国企业服务第一阵营，成为行业领先的综合型企业服务平台。目前，在线会员数量已超过200余万人。 我们旨在变革企业服务方式，以在线快速便捷的服务模式，完善企业服务全生态链，实现全国内的互联互建互赢，为所有创业者搭建一个有梦的舞台。通过北上广不间断的设点布局，整合中小城市企业服务精优资源，达成全国战略发展目标。</string>
+    <!--修改密码-->
+    <string name="modify_password_old">请输入原密码</string>
+    <string name="modify_password_new">请输入新密码</string>
+    <string name="modify_password_new_ok">请确认新密码</string>
+    <!--项目-->
+    <string name="str_project_detail">项目已完成详情</string>
+    <string name="str_project_start">待开工</string>
+    <string name="str_project_info">项目信息</string>
+    <string name="str_contact_owner">联系业主</string>
+    <string name="str_verify">确认</string>
+    <string name="str_shut_reason">请输入停工原因(100字)</string>
+    <string name="label_project">项目</string>
+    <string name="income">收入</string>
+    <string name="instrument">工具</string>
+    <string name="personal">我的</string>
+    <string name="withdraw">提现</string>
+    <string name="project_detail">项目详情</string>
+    <string name="project_quote">项目报价</string>
+    <string name="quote_list">报价单</string>
+    <string name="execute_progress">施工进度</string>
+    <string name="project_manifest">项目清单</string>
+    <string name="project_overview">项目信息</string>
+    <string name="execute_material">施工材料</string>
+    <string name="lockout_apply">申请停工</string>
+    <string name="field_live">工地直播</string>
+    <string name="project_acceptance">工程验收</string>
+    <string name="section_acceptance">阶段验收</string>
+    <string name="section_overview">工程量</string>
+    <string name="execute_team">施工团队</string>
+    <string name="add_member">添加成员</string>
+    <string name="field_measure">工地测量</string>
+    <string name="project_offer">项目报价</string>
+    <string name="offer_manifest">报价单</string>
+    <string name="budget_manifest">预算单</string>
+    <string name="account_receivable">待到款</string>
+    <string name="account_arrived">已到款</string>
+    <string name="account_arrived_information">到款信息</string>
+    <string name="income_detail">收入明细</string>
+    <string name="floating_detail">增扣款明细</string>
+    <string name="str_quotation">报价单</string>
+    <string name="str_measure_result">测量结果</string>
+    <string name="str_edit">编辑</string>
+    <string name="str_budget_sheet">预算单</string>
+    <string name="str_during_construction">施工中</string>
+    <string name="str_wait_sign">待签约</string>
+    <string name="str_prepare_construction">待开工</string>
+    <string name="str_did_construction">已完工</string>
+    <string name="str_owner_name">业主 : %1$s</string>
+    <string name="str_budget">预算</string>
+    <string name="str_time">工期</string>
+    <string name="str_free_item">自由项</string>
+    <string name="bag_main">主材</string>
+    <string name="bag_auxiliary">辅材</string>
+    <string name="project_information">项目详情</string>
+    <string name="project_budget">预算</string>
+    <string name="project_limit_time">工期</string>
+
+    <string name="str_project_list_price">¥%s</string>
+    <string name="str_project_list_acreage">%sm²</string>
+    <string name="str_project_item_per_price">%s/m²</string>
+    <string name="str_intermediate_work">%.2f</string>
+
+    <string name="hint_space">请输入空间名称</string>
+    <string name="stringok">确认</string>
+    <string name="stringcancel">取消</string>
+    <string name="stringare">%2fm²</string>
+    <string name="stringlen">%2fm</string>
+    <string name="stringrule">建筑外框面积=（长度+0.18*2）*(宽度+0.18*2),每次计算均会叠加结果。清除会清空之前的计算结果。</string>
+    <string name="str_size_hint">总计（建筑外框面积）</string>
+    <string name="str_freeterm_empty">尚未选择自由项，请点击增加项进行选择</string>
+
+    <!--收入-->
+    <string name="income_money_hint">请输入提现金额</string>
+    <string name="str_total">合计:</string>
+
+</resources>

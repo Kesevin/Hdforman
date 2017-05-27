@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        style="@style/toolbar_style"
+        app:contentInsetStart="0dp">
+        <include
+            layout="@layout/title_bar_layout"
+            />
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16px"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="@dimen/left_right_spacing">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/neighbourhoods"
+                style="@style/tv_dark_style"
+                android:layout_marginRight="10px"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textSize="28px"
+                tools:text="中德英伦联邦" />
+
+            <TextView
+                android:id="@+id/floor"
+                style="@style/tv_dark_style"
+                android:ellipsize="end"
+                android:lines="1"
+                tools:text="12栋1单元1004号"
+                android:textColor="@color/textLightDarkColor" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/will_time_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="5px"
+            android:layout_marginTop="5px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/time_lab"
+                style="@style/tv_dark_style"
+                android:layout_marginRight="10px"
+                android:text="预计到款时间:"
+                android:textColor="@color/textLightDarkColor"
+                android:textSize="24px" />
+
+            <TextView
+                android:id="@+id/will_pay_time"
+                style="@style/tv_dark_style"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="2016-10-25" />
+
+            <TextView
+                android:id="@+id/right_arrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@mipmap/jump" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:id="@+id/project_name"
+            style="@style/tv_dark_style"
+            android:layout_marginBottom="8px"
+            android:layout_marginTop="8px"
+            android:ellipsize="end"
+            android:lines="1"
+            tools:text="木工工程"
+            android:visibility="visible" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/tv_dark_style"
+                    android:layout_marginRight="10px"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="业主:" />
+
+                <TextView
+                    android:id="@+id/owner"
+                    style="@style/tv_dark_style"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    tools:text="刘素素" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lab_kuanxiang"
+                    style="@style/tv_dark_style"
+                    android:layout_marginRight="10px"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="已收项目款:" />
+
+                <TextView
+                    android:id="@+id/received_money"
+                    style="@style/tv_dark_style"
+                    android:layout_marginLeft="10px"
+                    android:gravity="right"
+                    tools:text="¥300"
+                    android:textColor="@color/colorLightRed" />
+            </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16px"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/left_right_spacing"
+        android:paddingTop="@dimen/left_right_spacing">
+
+        <TextView
+            style="@style/tv_dark_style"
+            android:layout_width="match_parent"
+            android:ellipsize="end"
+            android:lines="1"
+            android:paddingLeft="@dimen/left_right_spacing"
+            android:paddingRight="@dimen/left_right_spacing"
+            android:textSize="28px"
+            android:text="款项明细"
+            android:textColor="@color/textLightDarkColor" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="10px"
+            android:layout_marginTop="10px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/left_right_spacing"
+            android:paddingRight="@dimen/left_right_spacing"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/project_item"
+                style="@style/tv_dark_style"
+                android:layout_marginRight="10px"
+                tools:text="木工工程款"
+                android:textSize="28px" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/item_money"
+                style="@style/tv_dark_style"
+                tools:text="¥50000"
+                android:textColor="@color/colorLightRed" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorDivide" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="15px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/left_right_spacing"
+            android:paddingRight="@dimen/left_right_spacing"
+            android:visibility="visible">
+
+            <TextView
+                style="@style/tv_dark_style"
+                android:layout_marginRight="10px"
+                android:text="结算时间"
+                android:textSize="28px"
+                android:textColor="@color/textLightDarkColor"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/settlement_time"
+                style="@style/tv_dark_style"
+                android:textSize="28px"
+                tools:text="2016-15-10" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>
+

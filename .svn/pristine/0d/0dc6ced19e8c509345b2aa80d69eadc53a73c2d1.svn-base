@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="38px"
+    android:layout_marginTop="38px"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_construct_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_left_right_common"
+        android:text="12墙打拆"
+        android:textColor="@color/textDarkColor"
+        android:textSize="@dimen/def_text_size_sp" />
+
+    <TextView
+        android:id="@+id/tv_construct_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/margin_left_right_common"
+        android:text="5m²"
+        android:textColor="@color/textDarkColor"
+        android:textSize="@dimen/def_text_size_sp" />
+</com.zhy.autolayout.AutoRelativeLayout>

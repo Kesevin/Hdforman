@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20px"
+    android:background="@color/textWhiteColor"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_left_right_common"
+        android:text="基础包"
+        android:textColor="@color/textLightDarkColor"
+        android:textSize="@dimen/def_text_size_sp" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_left_right_common"
+            android:text="套内建筑面积"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/def_text_size_sp" />
+
+        <TextView
+            android:id="@+id/tv_room_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/margin_left_right_common"
+            android:text="96.65.m²"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/def_text_size_sp" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_left_right_common"
+        android:layout_marginTop="30px"
+        android:text="卧室数量"
+        android:textColor="@color/textDarkColor"
+        android:textSize="@dimen/def_text_size_sp" />
+
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup
+        android:id="@+id/arg_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40px"
+        android:layout_marginTop="28px"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="26px"
+            android:background="@drawable/rb_two_lightdark_orange"
+            android:button="@null"
+            android:checked="false"
+            android:paddingBottom="10px"
+            android:paddingLeft="48px"
+            android:paddingRight="48px"
+            android:paddingTop="10px"
+            android:text="1"
+            android:textColor="@drawable/text_orange_light_selector" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="38px"
+            android:background="@drawable/rb_two_lightdark_orange"
+            android:button="@null"
+            android:checked="false"
+            android:paddingBottom="10px"
+            android:paddingLeft="48px"
+            android:paddingRight="48px"
+            android:paddingTop="10px"
+            android:text="2"
+            android:textColor="@drawable/text_orange_light_selector" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="38px"
+            android:background="@drawable/rb_two_lightdark_orange"
+            android:button="@null"
+            android:checked="false"
+            android:paddingBottom="10px"
+            android:paddingLeft="48px"
+            android:paddingRight="48px"
+            android:paddingTop="10px"
+            android:text="3"
+            android:textColor="@drawable/text_orange_light_selector" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="38px"
+            android:background="@drawable/rb_two_lightdark_orange"
+            android:button="@null"
+            android:checked="false"
+            android:paddingBottom="10px"
+            android:paddingLeft="48px"
+            android:paddingRight="48px"
+            android:paddingTop="10px"
+            android:text="4"
+            android:textColor="@drawable/text_orange_light_selector" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="38px"
+            android:background="@drawable/rb_two_lightdark_orange"
+            android:button="@null"
+            android:checked="false"
+            android:paddingBottom="10px"
+            android:paddingLeft="48px"
+            android:paddingRight="48px"
+            android:paddingTop="10px"
+            android:text="5"
+            android:textColor="@drawable/text_orange_light_selector" />
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:background="@color/colorDivide" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_left_right_common"
+        android:layout_marginTop="44px"
+        android:text="升级包"
+        android:textColor="@color/textLightDarkColor"
+        android:textSize="@dimen/def_text_size_sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_left_right_common"
+        android:layout_marginTop="30px"
+        android:text="卫生间增加数（基础包含1个）"
+        android:textColor="@color/textDarkColor"
+        android:textSize="@dimen/def_text_size_sp" />
+
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup
+        android:id="@+id/arg_toilet_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40px"
+        android:layout_marginTop="28px"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="26px"
+            android:background="@drawable/rb_two_lightdark_orange"
+            android:button="@null"
+            android:checked="false"
+            android:paddingBottom="10px"
+            android:paddingLeft="48px"
+            android:paddingRight="48px"
+            android:paddingTop="10px"
+            android:text="1"
+            android:textColor="@drawable/text_orange_light_selector" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="38px"
+            android:background="@drawable/rb_two_lightdark_orange"
+            android:button="@null"
+            android:checked="false"
+            android:paddingBottom="10px"
+            android:paddingLeft="48px"
+            android:paddingRight="48px"
+            android:paddingTop="10px"
+            android:text="2"
+            android:textColor="@drawable/text_orange_light_selector" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="38px"
+            android:background="@drawable/rb_two_lightdark_orange"
+            android:button="@null"
+            android:checked="false"
+            android:paddingBottom="10px"
+            android:paddingLeft="48px"
+            android:paddingRight="48px"
+            android:paddingTop="10px"
+            android:text="3"
+            android:textColor="@drawable/text_orange_light_selector" />
+
+
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup>
+</com.zhy.autolayout.AutoLinearLayout>

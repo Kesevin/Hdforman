@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.dgg.hdforeman.mvp.ui.widget.UnSlidingViewPager
+        android:id="@+id/main_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </com.dgg.hdforeman.mvp.ui.widget.UnSlidingViewPager>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorDivide"/>
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup
+        android:id="@+id/tab_group"
+        android:layout_width="match_parent"
+        android:layout_height="110px"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:visibility="gone"
+        >
+        <RadioButton
+            android:id="@+id/tab_project"
+            style="@style/bottom_tab_sty"
+            android:textColor="@drawable/tab_text_selector"
+            android:checked="true"
+            android:paddingTop="10dp"
+            app:label_show="true"
+            app:label_bg_color="#ff0000"
+            app:label_txt_num="12"
+            app:label_txt_color="#0000ff"
+            android:drawableTop="@drawable/tab_project_selector"
+            android:text="项目"/>
+
+        <RadioButton
+            android:id="@+id/tab_income"
+            style="@style/bottom_tab_sty"
+            android:textColor="@drawable/tab_text_selector"
+            android:paddingTop="10dp"
+            android:drawableTop="@drawable/tab_income_selector"
+            android:text="收入"/>
+
+        <RadioButton
+            android:id="@+id/tab_tool"
+            style="@style/bottom_tab_sty"
+            android:paddingTop="10dp"
+            android:textColor="@drawable/tab_text_selector"
+            android:drawableTop="@drawable/tab_tool_selector"
+            android:text="工具"/>
+
+        <RadioButton
+            android:id="@+id/tab_mine"
+            style="@style/bottom_tab_sty"
+            android:paddingTop="10dp"
+            android:textColor="@drawable/tab_text_selector"
+            android:drawableTop="@drawable/tab_mine_selector"
+            android:text="我的"/>
+
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoRadioGroup>
+    <com.flyco.tablayout.CommonTabLayout
+        android:id="@+id/tab_lay"
+        android:layout_width="match_parent"
+        android:layout_height="110px"
+        android:background="#ffffff"
+        tl:tl_iconHeight="20dp"
+        tl:tl_iconWidth="20dp"
+        tl:tl_indicator_color="#2C97DE"
+        tl:tl_indicator_height="0dp"
+        tl:tl_textSelectColor="#f4723e"
+        tl:tl_textUnselectColor="#333333"
+        tl:tl_textsize="12sp"
+        tl:tl_underline_color="#DDDDDD"
+        tl:tl_underline_height="1dp"/>
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/textWhiteColor">
+
+        <TextView
+            android:id="@+id/offer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40px"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="40px"
+            android:text="打拆"
+            android:textColor="@color/textDarkColor"
+            android:textSize="30px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40px"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="40px"
+            android:text="（多填或不填）"
+            android:textColor="@color/textLightDarkColor" />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/arrow_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥50/个"
+                android:textColor="@color/textDarkColor"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="52px"
+                android:layout_toLeftOf="@+id/expand_sub_item"
+                android:textSize="@dimen/def_text_size_sp" />
+
+            <ImageView
+                android:id="@+id/expand_sub_item"
+                android:layout_width="32px"
+                android:layout_height="32px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="26px"
+                android:background="@mipmap/list_btn_weizhankai" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/colorDivide" />
+</com.zhy.autolayout.AutoLinearLayout>

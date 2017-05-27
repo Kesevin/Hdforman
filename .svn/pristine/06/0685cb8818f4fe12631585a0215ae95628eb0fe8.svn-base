@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/space_name"
+        android:layout_width="match_parent"
+        android:layout_height="102px"
+        android:layout_marginLeft="24px"
+        android:layout_marginRight="24px"
+        android:layout_marginTop="48px"
+        android:background="@color/backgroundGray"
+        android:hint="请输入空间名称"
+        android:paddingLeft="82px"
+        android:textColorHint="@color/textGreyColor" />
+
+    <ImageView
+        android:layout_width="40px"
+        android:layout_height="40px"
+        android:layout_marginLeft="54px"
+        android:layout_marginTop="78px"
+        android:background="@mipmap/btn_mingchen" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/space_name"
+        android:layout_marginBottom="40px"
+        android:layout_marginTop="56px"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22px"
+            android:layout_weight="1"
+            android:background="@drawable/btn_grey_border_shape"
+            android:text="取消"
+            android:textColor="#3d3d3d" />
+
+        <Button
+            android:id="@+id/ensure"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="26px"
+            android:layout_weight="1"
+            android:background="@drawable/btn_orange_shape"
+            android:text="确定"
+            android:textColor="@color/textWhiteColor" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

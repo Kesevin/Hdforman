@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorDivide"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/offer_sub_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="42px"
+        android:layout_marginLeft="26px"
+        android:layout_marginTop="42px"
+        android:text="12墙打拆"
+        android:textColor="@color/textDarkColor"
+        android:textSize="@dimen/def_text_size_sp" />
+
+    <TextView
+        android:id="@+id/offer_sub_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="10m²"
+        android:textColor="@color/textLightDarkColor" />
+
+    <ImageButton
+        android:id="@+id/offer_sub_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="26px"
+        android:background="@android:color/transparent"
+        android:src="@mipmap/list_delete" />
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       xmlns:tools="http://schemas.android.com/tools">
+
+    <CheckBox
+        android:id="@+id/cb_upgrade"
+        android:layout_width="40px"
+        android:layout_height="40px"
+        android:layout_marginTop="54px"
+        android:background="@drawable/cb_choose_selector"
+        android:layout_centerVertical="true"
+        android:button="@null" />
+
+    <TextView
+        android:id="@+id/tv_upgrade_riding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/cb_upgrade"
+        android:layout_marginTop="54px"
+        android:layout_marginLeft="36px"
+        android:textSize="@dimen/font_3"
+        android:layout_centerVertical="true"
+        android:textColor="@color/textDarkColor"
+        tools:text="12墙打拆（卧室1）: 5m²x40.00/m²=￥200.00" />
+</com.zhy.autolayout.AutoRelativeLayout>

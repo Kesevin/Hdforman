@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/textWhiteColor"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/construct_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24px"
+        android:layout_marginTop="62px"
+        android:text="水曲柳或桃木实木线条100*100"
+        android:textColor="@color/textDarkColor"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/price_per_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24px"
+        android:layout_marginTop="38px"
+        android:text="￥180/m"
+        android:textColor="@color/colorLightRed"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/construct_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24px"
+        android:layout_marginTop="36px"
+        android:text="1.规格100㎜*㎜\n2.水曲柳或桃胡木\n3.不含油漆"
+        android:textColor="@color/textDarkColor"
+        android:textSize="14sp" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="102px"
+        android:layout_marginTop="98px"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/item_count"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/bgGreyColor"
+            android:gravity="center"
+            android:hint="输入数量" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorOrange"
+            android:text="确定"
+            android:textColor="@color/textWhiteColor"
+            android:textSize="14sp" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

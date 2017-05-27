@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/rl_predict_start"
+    android:background="@color/textWhiteColor">
+
+    <TextView
+        android:id="@+id/tv_predict_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="预计开工时间 :"
+        android:textColor="@color/textLightDarkColor"
+        android:textSize="@dimen/def_text_size_sp"
+        android:layout_marginTop="44px"
+        android:layout_marginBottom="38px"
+        android:layout_marginLeft="26px"/>
+    <TextView
+        android:id="@+id/tv_predict_start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2016-10-08"
+        android:layout_marginTop="44px"
+        android:layout_toRightOf="@+id/tv_predict_start"
+        android:textSize="@dimen/def_text_size_sp"
+        android:textColor="@color/textDarkColor"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="44px"
+        android:layout_marginRight="26px"
+        android:src="@mipmap/list_jump"/>
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        style="@style/toolbar_style"
+        app:contentInsetStart="0dp">
+
+        <ImageView
+            android:id="@+id/toolbar_back"
+            android:layout_width="@dimen/title_btn_width"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/nav_return"
+            android:gravity="center"
+            android:layout_gravity="left|center_vertical"/>
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/execute_team"
+            android:textColor="@color/textWhiteColor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/toolbar_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="26px"
+            android:text="@string/add_member"
+            android:textColor="@color/textWhiteColor"
+            android:textSize="15sp" />
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar>
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/ConstructTeamSwipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ConstructTeamRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+        </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include
+        layout="@layout/view_no_data"/>
+</com.zhy.autolayout.AutoRelativeLayout>

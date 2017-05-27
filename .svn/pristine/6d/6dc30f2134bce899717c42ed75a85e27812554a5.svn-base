@@ -1,0 +1,150 @@
+package com.dgg.hdforeman.mvp.presenter.project;
+
+import android.content.Intent;
+import android.os.Bundle;
+
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.dgg.hdforeman.app.utils.RxUtils;
+import com.dgg.hdforeman.mvp.contract.project.DuringConstructContract;
+import com.dgg.hdforeman.mvp.model.been.BaseData;
+import com.dgg.hdforeman.mvp.model.been.BaseJson;
+import com.dgg.hdforeman.mvp.model.been.ProjectResponse;
+import com.dgg.hdforeman.mvp.model.been.ProjectUpList;
+import com.dgg.hdforeman.mvp.ui.project.adapter.DuringConstructAdapter;
+import com.jess.arms.base.BaseFragment;
+import com.jess.arms.di.scope.FragmentScope;
+import com.jess.arms.mvp.BasePresenter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import me.jessyan.rxerrorhandler.core.RxErrorHandler;
+import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
+import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action0;
+import rx.schedulers.Schedulers;
+
+import static com.dgg.hdforeman.mvp.model.project.DuringConstructModel.LIST_LIMIT_MAX;
+import static com.dgg.hdforeman.mvp.ui.project.fragment.DuringConstructFragment.ITEM_DATA;
+
+/**
+ * Created by kelvin on 2016/11/2.
+ */
+
+@FragmentScope
+public class DuringConstructPresenter extends BasePresenter<DuringConstructContract.Model, DuringConstructContract.View> {
+
+    private RxErrorHandler mErrorHandler;
+    private List<ProjectResponse> mDatas = new ArrayList<>();
+    private DuringConstructAdapter mAdapter;
+    private int mCurrentPage;
+    private int pagesize=10;
+    @Inject
+    public DuringConstructPresenter(DuringConstructContract.Model model, DuringConstructContract.View view,
+                                    RxErrorHandler handler) {
+        super(model, view);
+        this.mErrorHandler = handler;
+    }
+
+    public void initAdapter(BaseQuickAdapter.RequestLoadMoreListener listener) {
+        mAdapter = new DuringConstructAdapter(mDatas);
+        mRootView.setAdapter(mAdapter);
+        mAdapter.openLoadMore(pagesize);
+        mAdapter.setOnLoadMoreListener(listener);
+
+    }
+
+    public void jumpItem(ProjectResponse response) {
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(ITEM_DATA, response);//将列表数据通过intent带给详情页
+        intent.putExtras(bundle);
+        mRootView.getTabItem().launchActivity(intent);
+    }
+
+    public void requestList(final boolean pullToRefresh) {
+
+        if (pullToRefresh) {
+            mCurrentPage = 1;
+            mAdapter.openLoadMore(pagesize);
+        }
+
+        mModel.qryDuringConstructList(mRootView.getProtype(), (mCurrentPage - 1) * LIST_LIMIT_MAX)
+                .subscribeOn(Schedulers.io())
+                .retryWhen(new RetryWithDelay(3, 2))//遇到错误时重试,第一个参数为重试几次,第二个参数为重试的间隔
+                .doOnSubscribe(new Action0() {
+                    @Override
+                    public void call() {
+                        if (pullToRefresh)
+                            mRootView.showLoading();//显示上拉刷新的进度条
+                        else
+                            mRootView.startLoadMore();
+                    }
+                }).subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate(new Action0() {
+                    @Override
+                    public void call() {
+                        if (pullToRefresh)
+                            mRootView.hideLoading();//隐藏上拉刷新的进度条
+                        else
+//                            mRootView.endLoadMore();
+                            mAdapter.loadComplete();
+                    }
+                })
+                .compose(((BaseFragment) mRootView).<BaseJson<List<ProjectResponse>>>bindToLifecycle())
+                .subscribe(new ErrorHandleSubscriber<BaseJson<List<ProjectResponse>>>(mErrorHandler) {
+                    @Override
+                    public void onNext(BaseJson<List<ProjectResponse>> json) {
+                        if (json.isSuccess()) {
+                            if (pullToRefresh) {
+                                if (json.getD() == null || json.getD().size() == 0) {
+                                    mRootView.showNoData();
+                                } else {
+                                    mRootView.hintNodata();
+                                    mAdapter.openLoadMore(pagesize);
+//                                    mDatas.addAll(json.getD());
+                                }
+                                mAdapter.setNewData(json.getD());
+
+                            } else {
+                                if (json.getD().size() < pagesize) {
+                                    mAdapter.loadComplete();
+                                } else {
+                                    mAdapter.addData(json.getD());
+                                    mCurrentPage++;
+                                }
+                            }
+                        } else {
+                            mRootView.showMessage(json.getMsg());
+                        }
+
+                    }
+                });
+
+    }
+
+    public void doFreeitems(final ProjectResponse projectResponse) {
+        mModel.doFreeitems(projectResponse.getId())
+                .subscribeOn(Schedulers.io())
+                .compose(RxUtils.<BaseData>applySchedulers(mRootView))
+                .subscribe(new ErrorHandleSubscriber<BaseData>(mErrorHandler) {
+                    @Override
+                    public void onNext(BaseData baseData) {
+                        if (baseData.isSuccess()) {
+                            mRootView.showMessage("确认成功");
+//                            int index = mDatas.indexOf(projectResponse);
+//                            mDatas.get(index).setUpList(new ArrayList<ProjectUpList>());
+//                            mAdapter.notifyDataSetChanged();
+                            requestList(true);
+                        } else {
+                            mRootView.showMessage(baseData.getMsg());
+                        }
+                    }
+                });
+    }
+
+}

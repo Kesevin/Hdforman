@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
+
+    <View
+        android:id="@+id/up_vertical_line"
+        android:layout_width="6px"
+        android:layout_height="59px"
+        android:layout_marginLeft="40px"
+        android:background="#eeeeee"
+        android:visibility="visible" />
+
+    <View
+        android:id="@+id/down_vertical_line"
+        android:layout_width="6px"
+        android:layout_height="59px"
+        android:layout_below="@+id/up_vertical_line"
+        android:layout_marginLeft="40px"
+        android:background="#eeeeee" />
+
+    <ImageView
+        android:id="@+id/progress_state"
+        android:layout_width="40px"
+        android:layout_height="40px"
+        android:layout_below="@id/up_vertical_line"
+        android:layout_marginLeft="23px"
+        android:layout_marginTop="-20px"
+        android:background="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/progress_sub_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/up_vertical_line"
+        android:layout_marginLeft="26px"
+        android:layout_marginTop="-20px"
+        android:layout_toRightOf="@id/progress_state"
+        android:text="铲墙及门窗保护"
+        android:textColor="@color/textLightDarkColor"
+        android:textSize="28px" />
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

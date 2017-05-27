@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:padding="@dimen/left_right_spacing"
+        android:layout_marginTop="16px"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/neighbourhoods"
+                style="@style/tv_dark_style"
+                android:ellipsize="end"
+                android:lines="1"
+                android:layout_marginRight="10px"
+                android:text="中德英伦联邦" />
+
+            <TextView
+                android:id="@+id/floor"
+                style="@style/tv_dark_style"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textSize="28px"
+                android:textColor="@color/textLightDarkColor"
+                android:text="12栋1单元1004号" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/will_time_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="5px"
+            android:layout_marginBottom="5px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/time_lab"
+                style="@style/tv_dark_style"
+                android:text="预计到款时间:"
+                android:textSize="28px"
+                android:layout_marginRight="10px"
+                android:textColor="@color/textLightDarkColor" />
+            <TextView
+                android:id="@+id/will_pay_time"
+                style="@style/tv_dark_style"
+                android:ellipsize="end"
+                android:textSize="28px"
+                android:lines="1"
+                android:text="2016-10-25" />
+            <TextView
+                android:id="@+id/right_arrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@mipmap/jump"
+                />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:id="@+id/no_pay"
+            style="@style/tv_dark_style"
+            android:textColor="@color/colorLightRed"
+            android:ellipsize="end"
+            android:lines="1"
+            android:layout_marginTop="5px"
+            android:layout_marginBottom="5px"
+            android:text="业主未付款"
+            android:visibility="gone"/>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/money_lab"
+                style="@style/tv_dark_style"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textSize="28px"
+                android:layout_marginRight="10px"
+                android:textColor="@color/textLightDarkColor"
+                android:text="预计到款:" />
+
+            <TextView
+                android:id="@+id/will_get_money"
+                style="@style/tv_dark_style"
+                android:textSize="28px"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:textColor="@color/textLightDarkColor"
+                android:text="¥200000" />
+            <TextView
+                android:id="@+id/variability_money"
+                style="@style/tv_dark_style"
+                android:gravity="right"
+                android:layout_marginLeft="20px"
+                android:textColor="@color/colorLightRed"
+                android:textSize="28px"
+                android:text="+¥300"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>
+

@@ -1,0 +1,104 @@
+package com.dgg.hdforeman.mvp.model.api;
+
+/**
+ * Created by kelvin on 2016/11/7
+ */
+public interface Api {
+//    String APP_DOMAIN = "http://172.16.0.20:8006";//测试服务器
+//     String APP_DOMAIN = "http://172.16.0.25:8002";//测试服务器
+    String APP_DOMAIN = "http://zxadmin.dgg.net";
+//   String APP_DOMAIN = "http://172.16.1.75:8081";//陈东
+//    String APP_DOMAIN = "http://172.16.1.72:8088";//马宇宏
+//    String APP_DOMAIN = "http://172.16.1.230:8088";//郑友
+//        String APP_DOMAIN = "http://172.16.1.68:8089";//袁仁生
+//    String APP_DOMAIN = "http://172.16.1.28:8080";//叶林森
+//     String APP_DOMAIN = "http://172.16.1.228:8080";//罗刚
+//        String APP_DOMAIN = "http://172.16.1.137:8080";
+//    String APP_DOMAIN = "http://172.16.1.60:8080";
+//    String APP_DOMAIN = "http://172.16.1.239:8080";
+
+    String URL = "/foremanApp.nk?";
+    String URL_NOHDMS = "foremanApp.nk?";
+    String URL_ADD_COMPANYNAME = "/bms1031/owApp.nk";
+//    String URL_UPLOAD_IMG = "/HDMS/foremanApp.nk?appFile=true&do=add&reid=Y";
+    String URL_UPLOAD_IMG = "/foremanApp.nk?appFile=true&do=add&reid=Y";
+    String URL_DOWNLOAD_FILE = "/owApp.nk?appFile=true&do=get";
+    String CHECK_VERSION = "/getVersion.nk";
+    String RequestSuccess = "0";
+    String LOGIN_TIME_OUT = "1030";
+//    String IMAGE_URL = "/HDMS/image.img_RsT?p=";//{"id":"86960952714582","width":"1000","hight":"1000"}
+    String IMAGE_URL = "/image.img_RsT?p=";//{"id":"86960952714582","width":"1000","hight":"1000"}
+
+    enum RequestModule {
+        getProjectApi("ForemanApi", "getProject"),
+        getProjectInfoApi("ForemanApi", "getProjectInfo"),
+        getConstructProgressInfoApi("ForemanApi", "getConProgress"),
+        updateStageNodeApi("ForemanApi", "updateStageNode"),
+        projectShutApi("ForemanApi", "shutdown"),
+        getProjectAcceptListApi("ForemanApi", "proAcceptance"),
+        getIntermediateAcceptApi("ForemanApi", "itemList"),
+        ownerAcceptanceApi("ForemanApi", "ownerAcceptance"),
+        getProjectListApi("ForemanApi", "ProjectInventory"),
+        signProject("ForemanApi", "signProject"),
+        addTeamMember("ForemanApi", "addPerson"),
+        deleteTeamMember("ForemanApi", "deletePerson"),
+        projectPackage("ForemanApi", "projectPackage"),
+        doFreeitems("ForemanApi","doFreeitems"),
+        applyStartWork("ForemanApi","shutdownStart"),
+        getMaterialsApi("ForemanApi","selectMaterials"),
+        getSiteLive("ForemanApi","plantLive"),
+        getUpLoadApi("ForemanApi","plantLiveUploadPic"),
+        getAcceptanceCheckApi("ForemanApi","itemListUpImg"),
+        //获得升级包信息
+        getUpgrade("ForemanApi", "getUpgrade"),
+        //获得项目材料
+        getProjectStuff("ForemanApi", "project_stuff"),
+        getProMessage("ForemanApi","getMsgOfProList"),//获取施工消息列表
+        getMineMessage("ForemanApi","getMsgList"),//获取我的消息中心列表
+        //读取第三方配置
+        getOtherUP("ForemanApi","getOtherUP"),
+        getDecorationPermit("ForemanApi", "decorationPermit"),
+        getProAction("ForemanApi", "proAction"),
+        getWaitForPayment("ForemanApi","getDDKXQ"),
+        getMoneyArrived("ForemanApi","getYDKXQ"),
+        getChargeback("ForemanApi","getIncreaseCharges"),
+        getConstructTeamListApi("ForemanApi","selectExecution"),
+        addSpaceApi("ForemanApi","addSpace"),
+        getMessureListApi("ForemanApi","getProSpace"),
+        getMoneyArrivedDetail("ForemanApi","getDKinfo"),//已到款详细信息
+        withdraw("ForemanApi","withdraw"),
+        getIncomeDetail("ForemanApi","Revenuebreakdown"),
+        //查询项目自由项
+        getFreeTermlist("ForemanApi","getProFreeTerm"),
+        //添加自由项
+        addFreeTerm("ForemanApi","addFreeTerm"),
+        //配置升级包
+        deployFreeTerm("ForemanApi","getFreeTerm"),
+        getFitmentPicture("ForemanApi","decoration"),
+        getSendCustomer("ForemanApi","sendCustomer"), //发送业主
+        //查看预算单
+        getBudgetSheet("ForemanApi","Quotation"),
+        //生成预算单
+        addBudgetSheet("ForemanApi","addBudgetSheet"),
+        getVersionApi("LoginApi","getVersion"),
+        getMyScore("ForemanApi","gzPart");
+
+
+        private String className;
+        private String methodName;
+
+        RequestModule(String className, String methodName) {
+            this.className = className;
+            this.methodName = methodName;
+        }
+
+
+        public String getClassName() {
+            return className;
+        }
+
+        public String getMethodName() {
+            return methodName;
+        }
+    }
+}

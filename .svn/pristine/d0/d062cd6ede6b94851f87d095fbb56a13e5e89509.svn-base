@@ -1,0 +1,31 @@
+package com.dgg.hdforeman.mvp.presenter.project;
+
+import android.content.Intent;
+import android.os.Bundle;
+import com.dgg.hdforeman.app.HDApplication;
+import com.dgg.hdforeman.mvp.contract.project.ProjectContract;
+import com.dgg.hdforeman.mvp.model.been.ProjectResponse;
+import com.dgg.hdforeman.mvp.ui.project.activity.ProjectInformationActivity;
+import com.dgg.hdforeman.mvp.ui.project.activity.ProjectWaitToStartDetailActivity;
+import com.jess.arms.mvp.BaseView;
+
+/**
+ * Created by kelvin on 2016/11/9
+ */
+
+public class TypeItem3 implements ProjectContract.TabTypeItem<ProjectResponse> {
+
+    private BaseView mBaseView;
+    private HDApplication mApplication;
+
+    public TypeItem3(HDApplication application,BaseView baseView) {
+        this.mBaseView = baseView;
+        this.mApplication = application;
+    }
+
+    @Override
+    public void launchActivity(Intent intent) {
+        mBaseView.launchActivity(intent.setClass(mApplication, ProjectWaitToStartDetailActivity.class));
+    }
+
+}

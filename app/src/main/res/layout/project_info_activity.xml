@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorDivide"
+    android:orientation="vertical">
+
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:background="@color/colorOrange"
+
+        app:contentInsetStart="0dp">
+
+        <ImageView
+            android:id="@+id/toolbar_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_btn_selector"/>
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/str_project_info"
+            android:textColor="@color/textWhiteColor"
+            android:textSize="@dimen/px_36"/>
+
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar>
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/rl_receive_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:background="@color/colorDivide"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/rl_owner"
+            style="@style/TextLayoutStyle"
+            android:layout_marginTop="@dimen/sizeMarginSpace">
+
+            <TextView
+                android:id="@+id/tv_owner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="业主"
+                android:textColor="@color/textLightDarkColor"
+                android:textSize="@dimen/px_28"/>
+
+            <TextView
+                android:id="@+id/tv_owner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_owner"
+                android:layout_marginTop="@dimen/px_36"
+                tools:text="李先生"
+                android:textColor="@color/textDarkColor"
+                android:textSize="@dimen/px_30"/>
+
+            <ImageButton
+                android:id="@+id/ib_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/call_phone"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/ll_project_name"
+            style="@style/TextLayoutStyle"
+            android:layout_below="@id/rl_owner"
+            android:layout_marginTop="2px"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="项目名称"
+                android:textSize="@dimen/px_28"/>
+
+            <TextView
+                android:id="@+id/tv_project_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34px"
+                tools:text="中德英伦城邦  12栋1单元1004号"
+                android:textColor="@color/textDarkColor"
+                android:textSize="@dimen/px_30"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/rl_project_address"
+            style="@style/TextLayoutStyle"
+            android:layout_below="@id/ll_project_name"
+            android:layout_marginTop="2px">
+
+            <TextView
+                android:id="@+id/tv_project_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="项目地址"
+                android:textColor="@color/textLightDarkColor"
+                android:textSize="@dimen/px_28"/>
+
+            <TextView
+                android:id="@+id/tv_project_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_project_add"
+                android:layout_marginTop="@dimen/px_36"
+                tools:text="李先生"
+                android:textColor="@color/textDarkColor"
+                android:textSize="@dimen/px_30"/>
+
+            <ImageButton
+                android:id="@+id/ib_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/position"
+                android:visibility="gone"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            style="@style/TextLayoutStyle"
+            android:layout_below="@id/rl_project_address"
+            android:layout_marginTop="2px"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="工地信息"
+                android:textSize="@dimen/px_28"/>
+
+            <TextView
+                android:id="@+id/tv_site_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34px"
+                tools:text="二室一卫/77m²"
+                android:textColor="@color/textDarkColor"
+                android:textSize="@dimen/px_30"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <Button
+        android:id="@+id/btn_receive_order"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/colorOrange"
+        android:text="这个项目我接了"
+        android:textColor="@color/textWhiteColor"
+        android:textSize="@dimen/px_30"
+        android:visibility="gone"
+        />
+
+</com.zhy.autolayout.AutoRelativeLayout>

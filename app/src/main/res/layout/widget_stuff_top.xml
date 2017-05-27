@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/rl_stuff_top_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_stuff_top_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/Spacing_2"
+            android:layout_marginLeft="@dimen/Spacing_3"
+            android:layout_marginTop="@dimen/Spacing_2"
+            android:textColor="@color/textBlackgray"
+            android:textSize="16sp"
+            tools:text="新建"
+            />
+
+        <ImageView
+            android:id="@+id/iv_stuff_top_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/Spacing_3"
+            android:src="@mipmap/list_btn_weizhankai"
+            />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/ll_stuff_top_extend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_stuff_top_title"
+        android:orientation="vertical"></com.zhy.autolayout.AutoLinearLayout>
+
+    <ImageView
+        style="@style/divider_style_horizontal"
+        android:layout_alignParentBottom="true"/>
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

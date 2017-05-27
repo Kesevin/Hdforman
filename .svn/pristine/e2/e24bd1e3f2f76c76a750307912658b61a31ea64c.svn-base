@@ -1,0 +1,66 @@
+package com.dgg.hdforeman.mvp.ui.project.holder;
+
+import android.view.View;
+import android.widget.ImageView;
+
+import com.dgg.hdforeman.R;
+import com.dgg.hdforeman.app.HDApplication;
+import com.dgg.hdforeman.app.utils.CommonUtil;
+import com.dgg.hdforeman.mvp.ui.project.adapter.IntermediateImgAdapter;
+import com.jess.arms.widget.imageloader.ImageLoader;
+import com.jess.arms.widget.imageloader.glide.GlideImageConfig;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+
+/**
+ * Created by kelvin on 2016/11/18.
+ */
+
+public class IntermediaImgHolder extends BaseHolder<String> {
+
+    private final HDApplication mApplication;
+    private ImageLoader mImageLoader;//用于加载图片的管理类,默认使用glide,使用策略模式,可替换框架
+
+    IntermediateImgAdapter.OnPreviewClickListener mOnItemClickListener;
+
+    @BindView(R.id.IntermediateImageView)
+    ImageView mImageView;
+
+    public IntermediaImgHolder(View itemView,IntermediateImgAdapter.OnPreviewClickListener mOnItemClickListener) {
+        super(itemView);
+        mApplication = (HDApplication) itemView.getContext().getApplicationContext();
+        mImageLoader = mApplication.getAppComponent().imageLoader();
+        this.mOnItemClickListener=mOnItemClickListener;
+    }
+
+    @Override
+    public void setData(String data) {
+        mImageLoader.loadImage(mApplication, GlideImageConfig
+                .builder()
+                .url(getPath(data))
+                .imagerView(mImageView)
+                .errorPic(R.mipmap.default_project_icon)
+                .build());
+    }
+    @OnClick(R.id.IntermediateImageView)
+    public void onClicks(View view) {
+        if(mOnItemClickListener!=null)
+            mOnItemClickListener.onItemPreview(view,getLayoutPosition());
+    }
+    private String getPath(String path) {
+        if (path == null) {
+            path = "";
+        }
+
+//        if (!path.startsWith("http") && !path.startsWith("file")) {
+//            path = "file://" + path;
+//        }
+        if(CommonUtil.isNumeric(path)){
+            path = CommonUtil.getImageUrl(path,1500,1500);
+        }else{
+            path = "file://" + path;
+        }
+        return path;
+    }
+}

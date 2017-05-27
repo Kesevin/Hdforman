@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/live_picture"
+        android:layout_width="226px"
+        android:layout_height="226px"
+        android:layout_marginLeft="10px"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px"
+        android:background="@color/colorAccent"
+        app:layout_auto_basewidth="height" />
+
+</com.zhy.autolayout.AutoFrameLayout>

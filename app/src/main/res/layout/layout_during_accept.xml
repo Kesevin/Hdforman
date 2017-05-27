@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sizeMarginSpace"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/px_30"
+        android:paddingLeft="@dimen/px_24"
+        android:paddingRight="@dimen/px_24"
+        android:paddingTop="@dimen/px_36">
+
+        <TextView
+            android:id="@+id/mDcName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中德英伦联邦"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/px_30"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/mDcLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_area"
+            android:layout_marginLeft="@dimen/px_22"
+            android:layout_toRightOf="@id/mDcName"
+            tools:text="12栋1单元1004号"
+            android:textSize="@dimen/px_28"
+            android:textColor="@color/textLightDarkColor"
+            android:layout_centerVertical="true"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/colorDivide" />
+
+    <!--<com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/px_40"
+        android:paddingTop="@dimen/px_28"
+        android:paddingLeft="@dimen/px_24"
+        android:paddingRight="@dimen/px_24">
+
+        <TextView
+            android:id="@+id/mDcProjectState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="工程完成待验收"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/px_28" />
+
+        <TextView
+            android:id="@+id/mDcOwnerState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/mDcProjectState"
+            android:layout_marginLeft="@dimen/px_88"
+            android:layout_toRightOf="@id/mDcProjectState"
+            android:text="业主待付款"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/px_28" />
+
+        <TextView
+            android:id="@+id/mDcOwnerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mDcOwnerState"
+            android:paddingTop="28px"
+            android:text="业主:刘桑娥"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/px_28"/>
+
+        <ImageButton
+            android:id="@+id/mDcCallPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/call_phone" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>-->
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/px_40"
+        android:paddingLeft="@dimen/px_24"
+        android:paddingRight="@dimen/px_24"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+        <TextView
+            android:id="@+id/add_pro_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="业主新增下列施工项："
+            android:textColor="@color/colorOrange"
+            android:textSize="@dimen/px_28"
+            android:visibility="gone"/>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/add_pro_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="28px"
+            android:visibility="gone">
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/normal_pro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28px">
+            <TextView
+                android:id="@+id/mDcProjectState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="工程完成待验收"
+                android:textColor="@color/textDarkColor"
+                android:textSize="@dimen/px_28"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/px_88"/>
+
+            <TextView
+                android:id="@+id/mDcOwnerState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/text_orange_shape"
+                android:layout_toRightOf="@id/mDcProjectState"
+                android:padding="10px"
+                tools:text="施工中"
+                android:textColor="@color/colorOrange"
+                android:textSize="@dimen/px_28" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+        <TextView
+            android:id="@+id/mDcProjectDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="报价时间：2016.12.24 15:22"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/px_28"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="28px"
+            android:visibility="gone"/>
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mDcOwnerState">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="28px">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="业主:"
+                android:textColor="@color/textLightDarkColor"
+                android:textSize="@dimen/px_28"
+                android:layout_toLeftOf="@+id/mDcOwnerName"/>
+            <TextView
+                android:id="@+id/mDcOwnerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="刘桑娥"
+                android:textColor="@color/textDarkColor"
+                android:textSize="@dimen/px_28"/>
+            </com.zhy.autolayout.AutoLinearLayout>
+            <ImageButton
+                android:id="@+id/mDcCallPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/call_phone" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="地址:"
+                android:textColor="@color/textLightDarkColor"
+                android:textSize="@dimen/px_28"
+                android:layout_toLeftOf="@+id/mDcOwnerName"/>
+            <TextView
+                android:id="@+id/mDcAdress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mDcOwnerState"
+                android:paddingTop="28px"
+                tools:text="成都市高新区天府大道南段广东路"
+                android:textColor="@color/textDarkColor"
+                android:textSize="@dimen/px_28"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/during_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28px"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/pro_during_btn"
+                android:layout_width="196px"
+                android:layout_height="72px"
+                android:text="确认项目"
+                android:textSize="@dimen/sp_14"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_orange_ten_shape"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:clickable="true"/>
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

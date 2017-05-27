@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20px"
+    android:background="@color/textWhiteColor"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_materials_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32px"
+        android:layout_marginLeft="@dimen/margin_left_right_common"
+        android:layout_marginTop="32px"
+        android:text="辅材包"
+        android:textSize="@dimen/px_30"
+        android:textColor="@color/textLightDarkColor" />
+</com.zhy.autolayout.AutoLinearLayout>

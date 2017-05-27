@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_star_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/textWhiteColor"
+    android:orientation="vertical">
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26px"
+            android:layout_marginTop="40px"
+            android:drawableLeft="@mipmap/coordinate_ability"
+            android:drawablePadding="16px"
+            android:text="协调能力"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/def_text_size_sp" />
+
+        <RatingBar
+            android:id="@+id/rl_coordinate"
+            style="@style/scoreRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48px"
+            android:layout_marginTop="34px"
+            android:numStars="5"
+            android:rating="4" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26px"
+            android:layout_marginTop="40px"
+            android:drawableLeft="@mipmap/score_list_service_normal"
+            android:drawablePadding="16px"
+            android:text="服务态度"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/def_text_size_sp" />
+
+        <RatingBar
+            android:id="@+id/rb_service"
+            style="@style/scoreRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="46px"
+            android:layout_marginLeft="48px"
+            android:layout_marginTop="34px"
+            android:numStars="5"
+            android:rating="3" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26px"
+            android:layout_marginTop="40px"
+            android:drawableLeft="@mipmap/score_list_project_controls_normal"
+            android:drawablePadding="16px"
+            android:text="工期管控"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/def_text_size_sp" />
+
+        <RatingBar
+            android:id="@+id/rb_project_controls"
+            style="@style/scoreRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48px"
+            android:layout_marginTop="34px"
+            android:numStars="5"
+            android:rating="3" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26px"
+            android:layout_marginTop="40px"
+            android:drawableLeft="@mipmap/score_list_skills_normal"
+            android:drawablePadding="16px"
+            android:text="专业技能"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/def_text_size_sp" />
+
+        <RatingBar
+            android:id="@+id/rb_skill"
+            style="@style/scoreRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48px"
+            android:layout_marginTop="34px"
+            android:numStars="5"
+            android:rating="3" />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

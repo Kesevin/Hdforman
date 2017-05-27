@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+    <include
+        layout="@layout/title_bar_layout"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="22px"
+            android:paddingRight="26px"
+            android:orientation="vertical"
+            android:layout_marginTop="20px"
+            android:background="@android:color/white"
+            android:paddingBottom="40px">
+            <TextView
+                android:id="@+id/contract_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/def_text_size_sp"
+                android:text="装修合同协议书"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40px"
+                android:textColor="@color/textDarkColor"/>
+            <TextView
+                android:id="@+id/contract_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/def_text_size_px"
+                android:text="       装修合同就是为了房屋装修而依照《中华人民共和国合同 法》及有关法律规定、签订的合同。装修合同就是为了房屋装 修而签订的合同。这个合同是依照《中华人民共和国合同法》 及有关法律、法规的规定，结合家庭居室装饰装修工程施工的 实际情况，在双方在平等、自愿、协商一致的基础上，就发包 人的家庭居室装饰装修工程（以下简称工程）的有关事宜达成 的协议。"
+                android:layout_marginTop="40px"
+                android:textColor="@color/textDarkColor"/>
+            <TextView
+                android:id="@+id/contract_content_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/def_text_size_px"
+                android:text="一、装修合同之承包方资格审查"
+                android:layout_marginTop="20px"
+                android:textColor="@color/textDarkColor"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/def_text_size_px"
+                android:text="        作为发包方，为预防欺诈，应了解承包方主要的情况： 1、确认承包方的主体资格是否真实与合法，是否是经过工商 行政管理机关核准登记的企业法人，是否具有从事民用建筑装 饰装修工程的资质，资质等级符合本次施工的要求。 2、确认签约人的资格，若是委托代理人是否具有授权委托书。 3、了解承包方的经营范围、社会信誉等以确定其履约能力， 必要时可以去参观发包方正在施工的装修现场。"
+                android:textColor="@color/textDarkColor"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/def_text_size_px"
+                android:text="二、装修合同之材料"
+                android:layout_marginTop="20px"
+                android:textColor="@color/textDarkColor"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/def_text_size_px"
+                android:text="        在合同中关于材料应进行详细的约定，如可约定由承包人 提供的材料、设备，承包人应在材料运到施工现场前通知发包 人，并接受发包人检验。承包方提供的材料和设备质量必须符 合国家标准，有质量检验合格证明，同时必须符合国家环保标 准。若承包方提供的材料和设备不符合标准，应当立即更换和 重做。"
+                android:textColor="@color/textDarkColor"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+</com.zhy.autolayout.AutoLinearLayout>

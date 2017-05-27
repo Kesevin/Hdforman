@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dgg.hdforeman.mvp.ui.widget.SquareRelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25px"
+        >
+        <cn.bingoogolapple.photopicker.widget.BGAImageView
+            android:id="@+id/photo_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:bga_iv_isSquare="true"
+            tools:src="@mipmap/bga_pp_ic_holder_light" />
+        <ImageView
+            android:id="@+id/mask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#70000000"
+            android:visibility="gone"
+            />
+
+        <ProgressBar
+            android:id="@+id/load_progress"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_centerInParent="true"
+            style="@android:style/Widget.ProgressBar.Small"
+            android:visibility="gone"
+            />
+        <ImageView
+            android:id="@+id/retry"
+            android:layout_width="90px"
+            android:layout_height="90px"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/retry"
+            />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <ImageView
+        android:id="@+id/delete"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/edit_clear" />
+
+
+</com.dgg.hdforeman.mvp.ui.widget.SquareRelativeLayout >

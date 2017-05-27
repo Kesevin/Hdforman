@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorDivide"/>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/px_30"
+        android:paddingBottom="@dimen/px_30"
+        android:paddingLeft="@dimen/px_26"
+        android:paddingRight="@dimen/px_26">
+
+        <com.dgg.hdforeman.mvp.ui.widget.CircleImageView
+            android:id="@+id/iv_mine"
+            android:layout_width="102px"
+            android:layout_height="102px"
+            android:src="@mipmap/mine_image"
+            android:scaleType="centerCrop"
+            android:layout_centerVertical="true"
+            app:layout_auto_basewidth="height"/>
+
+        <TextView
+            android:id="@+id/tv_mine_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="42px"
+            android:layout_toRightOf="@+id/iv_mine"
+            android:text="田富贵"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/def_text_size_sp" />
+
+        <ImageButton
+            android:id="@+id/ib_delete_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/list_delete_normal"
+            app:layout_auto_basewidth="height"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

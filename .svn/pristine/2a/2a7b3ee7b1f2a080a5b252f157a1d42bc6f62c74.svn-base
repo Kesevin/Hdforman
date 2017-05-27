@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/zhangjing/Develop/work/HDForeman/PICKERVIEW/build/intermediates/res/merged/androidTest/debug/drawable/dialog_determine_txt_selector.xml",
+        "source": "/Users/zhangjing/Develop/work/HDForeman/PICKERVIEW/build/intermediates/bundles/debug/res/drawable/dialog_determine_txt_selector.xml"
+    },
+    {
+        "merged": "/Users/zhangjing/Develop/work/HDForeman/PICKERVIEW/build/intermediates/res/merged/androidTest/debug/drawable/dialog_cancle_txt_selector.xml",
+        "source": "/Users/zhangjing/Develop/work/HDForeman/PICKERVIEW/build/intermediates/bundles/debug/res/drawable/dialog_cancle_txt_selector.xml"
+    },
+    {
+        "merged": "/Users/zhangjing/Develop/work/HDForeman/PICKERVIEW/build/intermediates/res/merged/androidTest/debug/drawable/selector_pickerview_btn.xml",
+        "source": "/Users/zhangjing/Develop/work/HDForeman/PICKERVIEW/build/intermediates/bundles/debug/res/drawable/selector_pickerview_btn.xml"
+    }
+]

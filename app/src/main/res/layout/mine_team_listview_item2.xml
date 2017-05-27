@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="170px">
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="170px"
+        android:paddingLeft="24px"
+        android:paddingRight="24px"
+        android:background="@drawable/common_layout_press_selector">
+        <ImageView
+            android:id="@+id/item_team_listView_head"
+            android:layout_width="102px"
+            android:layout_height="102px"
+            android:src="@mipmap/mine_image"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/item_team_listView_name"
+            android:layout_width="wrap_content"
+            android:layout_height="86px"
+            android:gravity="center_vertical"
+            android:text="田富贵"
+            android:layout_marginLeft="42px"
+            android:layout_toRightOf="@id/item_team_listView_head"
+            android:layout_centerVertical="true"/>
+        <Button
+            android:id="@+id/item_team_listView_phoneBtn"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/call_phone"
+            android:layout_alignParentRight="true"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoLinearLayout>

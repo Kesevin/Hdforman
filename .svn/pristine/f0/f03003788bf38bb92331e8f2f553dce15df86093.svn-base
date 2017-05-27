@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorDivide"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
+
+    <com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:background="@color/colorOrange"
+        app:contentInsetStart="0dp">
+
+        <ImageView
+            android:id="@+id/toolbar_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/nav_return"
+           />
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/lockout_apply"
+            android:textColor="@color/textWhiteColor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/toolbar_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="26px"
+            android:text="@string/str_verify"
+            android:textColor="@color/textWhiteColor"
+            android:textSize="15sp" />
+
+    </com.dgg.hdforeman.mvp.ui.widget.autolayout.AutoToolbar>
+
+    <EditText
+        android:id="@+id/ProjectShutEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:padding="@dimen/px_16"
+        android:background="@color/textWhiteColor"
+        android:gravity="start"
+        android:hint="@string/str_shut_reason"
+        android:text=""
+        android:minHeight="340px"
+        android:textColor="@color/textDarkColor"
+        android:maxLength="100"
+        android:textColorHint="@color/textLightDarkColor"
+        android:textSize="@dimen/px_28" />
+
+</com.zhy.autolayout.AutoLinearLayout>

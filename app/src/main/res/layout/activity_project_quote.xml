@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/layout_tool_bar"/>
+
+    <android.support.v4.widget.NestedScrollView
+
+        android:id="@+id/sv_project_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/Spacing_4"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingTop="@dimen/Spacing_4"
+                android:text="选择基础包"
+                android:textSize="@dimen/font_3"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_quote_package_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingBottom="40px"
+                android:paddingLeft="18px"
+                android:paddingRight="18px"
+                >
+
+                <!--<TextView-->
+                <!--android:layout_width="0px"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="18px"-->
+                <!--android:layout_marginRight="18px"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center"-->
+                <!--android:background="@drawable/check_stroke_orange_shape"-->
+                <!--android:paddingBottom="15px"-->
+                <!--android:paddingTop="15px"-->
+                <!--android:text="299辅材套餐包(二)"-->
+                <!--android:textColor="@color/colorLightOrange"-->
+                <!--android:textSize="@dimen/font_2"-->
+                <!--/>-->
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/Spacing_4"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingTop="@dimen/Spacing_4"
+                android:text="基础包"
+                android:textSize="@dimen/font_3"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/Spacing_3"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/Spacing_3"
+                    android:text="套内建筑面积"
+                    android:textColor="@color/textBlackgray"
+                    android:textSize="@dimen/font_3"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_quote_acreage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/Spacing_3"
+                    android:paddingLeft="@dimen/Spacing_3"
+                    android:textColor="@color/textBlackgray"
+                    android:textSize="@dimen/font_3"
+                    tools:text="38.2㎡"
+                    />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_quote_house"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_centerVertical="true"
+                android:textColor="@color/textBlackgray"
+                android:textSize="@dimen/font_3"
+                android:background="@color/white"
+                tools:text="卧室数量"
+                />
+
+
+            <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/white"-->
+            <!--&gt;-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/tv_quote_bedroom"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:paddingLeft="@dimen/Spacing_3"-->
+            <!--android:textColor="@color/textBlackgray"-->
+            <!--android:textSize="@dimen/font_3"-->
+            <!--tools:text="卧室数量"-->
+            <!--/>-->
+
+            <!--<com.dgg.hdforeman.mvp.ui.widget.AddView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="@dimen/Spacing_3"-->
+            <!--/>-->
+
+            <!--</RelativeLayout>-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/Spacing_4"
+                android:background="@color/white"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/Spacing_4"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingTop="@dimen/Spacing_4"
+                android:text="升级包"
+                android:textSize="@dimen/font_3"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                >
+
+                <com.dgg.hdforeman.mvp.ui.widget.AddView
+                    android:id="@+id/av_quote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/Spacing_3"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_quote_toilet"
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/Spacing_3"
+                    android:textColor="@color/textBlackgray"
+                    android:textSize="@dimen/font_3"
+                    tools:text="卫生间增加数(基础包含1个)"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/Spacing_4"
+                android:background="@color/white"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_quote_stuff_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:orientation="vertical"
+                >
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_quote_potential"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingRight="@dimen/Spacing_3">
+
+                <TextView
+                    android:id="@+id/tv_quote_potential"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/Spacing_4"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/font_3"
+                    tools:text="增加水电位"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_quote_potential_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/Spacing_4"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/font_3"
+                    tools:text="￥50/个"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_quote_potential"
+                    android:layout_marginBottom="42px"
+                    android:layout_marginTop="@dimen/Spacing_4"
+                    android:background="@color/backgroundGray"
+                    >
+
+                    <EditText
+                        android:id="@+id/et_quote_potential_sum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="22px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="22px"
+                        android:background="@null"
+                        android:hint="请输入增加水电位数量"
+                        android:inputType="number"
+                        android:textColor="@color/hintcolor"
+                        android:textColorHint="@color/textGreyColor"
+                        android:textSize="13sp"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_quote_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingRight="@dimen/Spacing_3">
+
+                <TextView
+                    android:id="@+id/tv_quote_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/Spacing_4"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/font_3"
+                    tools:text="石膏线使用"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_quote_line_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/Spacing_4"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="@dimen/font_3"
+                    tools:text="￥50/米(m)"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_quote_line"
+                    android:layout_marginBottom="42px"
+                    android:layout_marginTop="@dimen/Spacing_4"
+                    android:background="@color/backgroundGray"
+                    >
+
+                    <EditText
+                        android:id="@+id/et_quote_line_sum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="22px"
+                        android:layout_marginLeft="32px"
+                        android:layout_marginTop="22px"
+                        android:background="@null"
+                        android:hint="请输入石膏线使用数量"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/hintcolor"
+                        android:textColorHint="@color/textGreyColor"
+                        android:textSize="13sp"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tv_quote_tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/Spacing_4"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingRight="@dimen/Spacing_3"
+                android:paddingTop="@dimen/Spacing_4"
+                android:textColor="@color/textDarkColor"
+                android:textSize="@dimen/font_2"
+                tools:text="电视墙造型"
+                />
+
+
+            <LinearLayout
+                android:id="@+id/tv_quote_tv_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingRight="@dimen/Spacing_3">
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_quote_action_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/Spacing_4"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingRight="@dimen/Spacing_3"
+                android:paddingTop="@dimen/Spacing_4"
+                android:text="是否远程施工"
+                android:textColor="@color/textDarkColor"
+                android:textSize="@dimen/font_2"
+                />
+
+
+            <LinearLayout
+                android:id="@+id/tv_quote_action_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingRight="@dimen/Spacing_3">
+
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_freeterm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/Spacing_3"
+                android:paddingRight="@dimen/Spacing_3">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/Spacing_4"
+                    android:layout_marginTop="@dimen/Spacing_4"
+                    android:text="更多自由项"
+                    android:textColor="@color/textDarkColor"
+                    android:textSize="16sp"
+                    />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/list_jump"/>
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/btn_quote_action"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_marginTop="@dimen/Spacing_1"
+                android:background="@color/colorOrange"
+                android:text="生成报价单"
+                android:textColor="@color/white"
+                />
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

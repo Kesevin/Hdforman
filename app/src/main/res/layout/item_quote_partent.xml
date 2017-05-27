@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                     xmlns:zhy="http://schemas.android.com/apk/res-auto"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     android:background="@color/white"
+                                     android:orientation="vertical"
+                                     android:paddingTop="@dimen/px_40">
+
+    <TextView
+        android:id="@+id/tv_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/px_20"
+        android:layout_marginLeft="@dimen/Spacing_3"
+        android:text="空调系统（单选或不选）"
+        android:textColor="@color/textDarkColor"/>
+
+    <com.dgg.hdforeman.mvp.ui.widget.NoTouchTagFlowLayout
+        android:id="@+id/tag_flow"
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/Spacing_3"
+        zhy:gravity="left"
+        zhy:max_select="-1">
+
+    </com.dgg.hdforeman.mvp.ui.widget.NoTouchTagFlowLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30px"
+        android:layout_marginTop="40px"
+        android:background="@color/backgroundGray"></View>
+</com.zhy.autolayout.AutoLinearLayout>

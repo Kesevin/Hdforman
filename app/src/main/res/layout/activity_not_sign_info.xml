@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    >
+
+    <com.jess.arms.widget.autolayout.AutoToolbar
+        android:id="@+id/toolbar"
+        style="@style/style_toolbar"
+        app:contentInsetStart="0dp"
+        tools:ignore="ContentDescription"
+        tools:showIn="@layout/activity_not_sign_info">
+
+
+        <ImageView
+            android:id="@+id/toolbar_back"
+            style="@style/style_back_button"/>
+
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/style_toolbar_title"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_not_sign_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="联系业主"
+            android:textColor="@color/white"
+            android:layout_gravity="right"
+            android:textSize="@dimen/font_2"
+            android:layout_marginRight="@dimen/Spacing_2"
+            />
+
+    </com.jess.arms.widget.autolayout.AutoToolbar>
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/DcProjectInfo"
+        style="@style/TextLayoutStyle"
+        android:layout_marginTop="@dimen/sizeMarginSpace">
+
+
+        <TextView
+            android:id="@+id/tv_info"
+            style="@style/TextTitleStyle"
+            android:text="@string/str_project_info"/>
+
+        <TextView
+            android:id="@+id/DcOwnerNameAndAcreage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_info"
+            android:layout_marginTop="@dimen/px_36"
+            tools:text="李先生  /  122㎡"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/px_28"/>
+
+        <TextView
+            android:id="@+id/DcHouseNameAndAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/DcOwnerNameAndAcreage"
+            android:layout_marginTop="@dimen/px_28"
+            tools:text="中德英伦城邦  12栋1单元1004号"
+            android:textColor="@color/textLightDarkColor"
+            android:textSize="@dimen/px_28"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/list_jump"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/tv_not_sign_measure"
+        style="@style/TextLayoutStyle"
+        android:layout_marginTop="@dimen/px_20">
+
+        <TextView
+            android:id="@+id/tv_not_sign_size_title"
+            style="@style/TextTitleStyle"
+            android:textSize="@dimen/font_3"
+            android:text="工地测量"/>
+
+        <TextView
+            android:id="@+id/tv_not_sign_size_total"
+            style="@style/TextContentStyle"
+            android:layout_below="@id/tv_not_sign_size_title"
+            android:layout_marginTop="@dimen/px_28"
+            android:textSize="@dimen/font_3"
+            android:text="合计:"/>
+
+        <TextView
+            android:id="@+id/tv_not_sign_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_not_sign_size_title"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginTop="@dimen/px_28"
+            android:layout_toRightOf="@id/tv_not_sign_size_total"
+            tools:text="待测量"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/font_3"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/list_jump"
+            android:layout_centerVertical="true"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/tv_not_sign_price"
+        style="@style/TextLayoutStyle"
+        android:layout_marginTop="@dimen/px_20">
+
+        <TextView
+            android:id="@+id/tv_not_sign_price_title"
+            style="@style/TextTitleStyle"
+            android:textSize="@dimen/font_3"
+            android:text="项目报价"/>
+
+        <TextView
+            android:id="@+id/tv_not_sign_price_totle"
+            style="@style/TextContentStyle"
+            android:layout_below="@id/tv_not_sign_price_title"
+            android:layout_marginTop="@dimen/px_28"
+            android:textSize="@dimen/font_3"
+            android:text="合计:"/>
+
+        <TextView
+            android:id="@+id/tv_not_sign_price_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_not_sign_price_title"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_marginTop="@dimen/px_28"
+            android:layout_toRightOf="@id/tv_not_sign_price_totle"
+            tools:text="待报价"
+            android:textColor="@color/textDarkColor"
+            android:textSize="@dimen/font_3"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/list_jump"
+            android:layout_centerVertical="true"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+</LinearLayout>
